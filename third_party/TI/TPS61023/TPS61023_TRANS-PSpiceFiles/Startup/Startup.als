@@ -1,0 +1,19 @@
+.ALIASES
+R_R3            R3(1=N16776669 2=VOUT ) CN @TPS61023_TRANS.Startup(sch_1):INS16776467@ANALOG.R.Normal(chips)
+X_C5            C5(1=VOUT 2=0 ) CN @TPS61023_TRANS.Startup(sch_1):INS16776563@LCAP.CESR.Normal(chips)
+X_C4            C4(1=VOUT 2=0 ) CN @TPS61023_TRANS.Startup(sch_1):INS16776531@LCAP.CESR.Normal(chips)
+X_C1            C1(1=VIN 2=0 ) CN @TPS61023_TRANS.Startup(sch_1):INS16776399@LCAP.CESR.Normal(chips)
+C_C2            C2(1=0 2=VIN ) CN @TPS61023_TRANS.Startup(sch_1):INS16776429@ANALOG.C.Normal(chips)
+C_C3            C3(1=0 2=VIN ) CN @TPS61023_TRANS.Startup(sch_1):INS16776445@ANALOG.C.Normal(chips)
+R_R1            R1(1=FB 2=N16776669 ) CN @TPS61023_TRANS.Startup(sch_1):INS16776737@ANALOG.R.Normal(chips)
+R_R2            R2(1=0 2=FB ) CN @TPS61023_TRANS.Startup(sch_1):INS16776801@ANALOG.R.Normal(chips)
+X_C6            C6(1=VOUT 2=0 ) CN @TPS61023_TRANS.Startup(sch_1):INS16776595@LCAP.CESR.Normal(chips)
+X_L1            L1(1=VIN 2=N16776213 ) CN @TPS61023_TRANS.Startup(sch_1):INS16776171@LCAP.LDCR.Normal(chips)
+X_U1            U1(EN=VIN FB=FB GND=0 SW=N16776213 VIN=VIN VOUT=VOUT ) CN
++@TPS61023_TRANS.Startup(sch_1):INS16781895@TPS61023_TRANS.TPS61023_SCHEMATIC_1.Normal(chips)
+V_V14           V14(+=VIN -=0 ) CN @TPS61023_TRANS.Startup(sch_1):INS16782249@SOURCE.VPWL.Normal(chips)
+R_RLOAD          RLOAD(1=0 2=VOUT ) CN @TPS61023_TRANS.Startup(sch_1):INS16782379@ANALOG.R.Normal(chips)
+_    _(FB=FB)
+_    _(VIN=VIN)
+_    _(VOUT=VOUT)
+.ENDALIASES

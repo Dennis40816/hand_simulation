@@ -1,0 +1,22 @@
+** Profile: "Steady_state-Steady_state"  [ C:\Minqiu\Pspice\FullLibrary\tps61023-master@682092c3650\Development-PSPICE\TPS61023_PSPICE_TRANS\TPS61023_TRANS_PSPICE\tps61023_trans-pspicefiles\steady_state\steady_state.sim ] 
+
+** Creating circuit file "Steady_state.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../library/tps61023_trans.lib" 
+* From [PSPICE NETLIST] section of C:\Users\a0224109\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Minqiu\Pspice\TPS55288\TPS55288DEMO_MQ-PSpiceFiles\tps55288demo_mq.lib" 
+.lib "C:\Minqiu\Pspice\TPS55288\LOGIC.LIB" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 250us 245u 20n 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\Steady_state.net" 
+
+
+.END

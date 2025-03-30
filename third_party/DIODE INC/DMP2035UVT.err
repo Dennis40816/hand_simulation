@@ -1,0 +1,8 @@
+STATUS: PSpice Schematics to Capture translator (22.1.0.d001)
+STATUS:  
+STATUS: Translator started at Friday, April 26, 2024 11:16:18
+STATUS: C:\Cadence\SPB_22.1\tools\bin\sch2cap -f "C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\DIODE INC\DMP2035UVT.lib" -o "C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\DIODE INC\DMP2035UVT.olb" -i C:\Dennis\Develop\Simulation\ORCAD\.\cdssetup\OrCAD_PSpice/22.1.0/PSpice.ini
+INFO(ORSCH-1029): Using existing library 'C:\Cadence\SPB_22.1\tools\Capture\Library\PSpice\modeled.etc'.
+INFO(ORSCH-1029): Using existing library 'C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\DIODE INC\DMP2035UVT.olb'.
+STATUS: Translator stopped at Friday, April 26, 2024 11:16:18
+STATUS: 0 Error messages, 0 Warning messages

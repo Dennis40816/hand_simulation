@@ -1,0 +1,15 @@
+* source TPS61023_TRANS
+C_C2         0 VIN  22u  TC=0,0 
+X_C6         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C5         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C4         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C1         VIN 0 CESR PARAMS: C=150u ESR=0.1 IC=1N X=1
+V_V1         VIN 0 3.6
+X_L1         VIN SW LDCR PARAMS: L=1.1u DCR=4.55m
+X_U1         VIN FB 0 SW VIN VOUT TPS61023_SCHEMATIC
+C_C3         0 VIN  0.1u  TC=0,0 
+R_R3         N16777525 VOUT  49.9 TC=0,0 
+R_R2         0 FB  100k TC=0,0 
+R_R1         FB N16777525  733k TC=0,0 
+R_RLOAD         0 VOUT  {5/1} TC=0,0 
+.PARAM  ss=1

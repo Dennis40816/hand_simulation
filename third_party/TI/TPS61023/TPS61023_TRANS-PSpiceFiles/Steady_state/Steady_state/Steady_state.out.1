@@ -1,0 +1,57 @@
+
+**** 06/24/20 16:17:03 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "Steady_state-Steady_state"  [ C:\Minqiu\Pspice\FullLibrary\tps61023-master@682092c3650\Development-PSPICE\TPS61023_PSPI
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Steady_state.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "C:/Users/a0224019/Desktop/PSPICE/PSPICE_TPS61023/Encrypted lib/TPS61023_TRANS.LIB" 
+* From [PSPICE NETLIST] section of C:\Users\a0224109\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+ERROR(ORPSIM-16276): Simulation cannot be completed because library C:/Users/a0224019/Desktop/PSPICE/PSPICE_TPS61023/Encrypted lib/TPS61023_TRANS.LIB 
+is not available.
+.lib "C:\Minqiu\Pspice\TPS55288\TPS55288DEMO_MQ-PSpiceFiles\tps55288demo_mq.lib" 
+.lib "C:\Minqiu\Pspice\TPS55288\LOGIC.LIB" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 250us 245u 20n 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\Steady_state.net" 
+
+
+
+**** INCLUDING Steady_state.net ****
+* source TPS61023_TRANS
+C_C2         0 VIN  22u  TC=0,0 
+X_C6         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C5         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C4         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C1         VIN 0 CESR PARAMS: C=150u ESR=0.1 IC=1N X=1
+V_V1         VIN 0 3.6
+X_L1         VIN SW LDCR PARAMS: L=1.1u DCR=4.55m
+X_U1         VIN FB 0 SW VIN VOUT TPS61023_SCHEMATIC
+C_C3         0 VIN  0.1u  TC=0,0 
+R_R3         N16777525 VOUT  49.9 TC=0,0 
+R_R2         0 FB  100k TC=0,0 
+R_R1         FB N16777525  733k TC=0,0 
+R_RLOAD         0 VOUT  {5/1} TC=0,0 
+.PARAM  ss=1
+
+**** RESUMING Steady_state.cir ****
+.END
+

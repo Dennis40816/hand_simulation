@@ -1,0 +1,118 @@
+(ExpressProject "TPS63806_TRANS"
+  (ProjectVersion "19981106")
+  (SoftwareVersion "22.1 P001 (4063652)  [10/6/2022]-[04/30/24]")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\TPS63806yff_trans.olb"
+        (Type "Schematic Library")
+        (DisplayName ".\TPS63806yff_trans.olb")))
+    (NoModify)
+    (File ".\tps63806_trans.DSN"
+      (Type "Schematic Design")
+      (DisplayName ".\tps63806_trans.DSN"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE")
+    (RootChangedForceReNetlist "x")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420"))
+  (Folder "Layout")
+  (Folder "Outputs"
+    (File ".\tps63806_trans-pspicefiles\startup\startup.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\tps63806_trans-pspicefiles\startup\tran.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\tps63806_trans-pspicefiles\startup\tran.sim"
+        (DisplayName "STARTUP-tran")
+        (Type "PSpice Profile")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User))
+    (Folder "Model Libraries"
+      (File ".\tps63806_trans.lib"
+        (DisplayName ".\tps63806_trans.lib")
+        (Type "PSpiceLibrary"))
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (TPS63806YFF_TRANS
+      (FullPartName "TPS63806YFF_TRANS.Normal")
+      (LibraryName
+         "C:\USERS\Public\DOCUMENTS\LBS\SPICE\TPS63806_PSPICE_TRANS\TPS63806YFF_TRANS.OLB")
+      (DeviceIndex "0"))
+    (VPULSE
+      (FullPartName "VPULSE.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_16.2\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (GlobalState
+      (FileView
+        (Path "Design Resources")
+        (Path "Design Resources"
+           "c:\users\Public\documents\lbs\spice\tps63806_pspice_trans\tps63806_trans.DSN")
+        (Path "Design Resources"
+           "c:\users\Public\documents\lbs\spice\tps63806_pspice_trans\tps63806_trans.DSN"
+           "STARTUP")
+        (Path "Design Resources"
+           "c:\users\Public\documents\lbs\spice\tps63806_pspice_trans\tps63806_trans.DSN"
+           "Design Cache")
+        (Path "Design Resources" "Library")
+        (Path "Design Resources" "Library"
+           "c:\users\Public\documents\lbs\spice\tps63806_pspice_trans\TPS63806yff_trans.olb")
+        (Path "Outputs")
+        (Path "PSpice Resources")
+        (Path "PSpice Resources" "Model Libraries")
+        (Path "PSpice Resources" "Simulation Profiles")
+        (Select "Design Resources"
+           "c:\users\Public\documents\lbs\spice\tps63806_pspice_trans\tps63806_trans.DSN"
+           "STARTUP" "PAGE1"))
+      (HierarchyView)
+      (Doc
+        (Type "COrCapturePMDoc")
+        (Frame
+          (Placement "44 2 3 -1 -1 -8 -31 0 252 0 355"))
+        (Tab 0))
+      (Doc
+        (Type "COrPartDoc")
+        (Frame
+          (Placement "44 0 1 -1 -1 -8 -31 130 1733 130 589")
+          (PackageScroll "0 0")
+          (PackageZoom "1")
+          (PartPackage "Part")
+          (Scroll "1097 480")
+          (Zoom "241"))
+        (Path
+           "C:\USERS\Public\DOCUMENTS\LBS\SPICE\TPS63806_PSPICE_TRANS\TPS63806YFF_TRANS.OLB")
+        (Package "TPS63806YFF_TRANS"))
+      (Doc
+        (Type "COrSchematicDoc")
+        (Frame
+          (Placement "44 0 1 -1 -1 -8 -31 208 1811 208 667")
+          (Scroll "0 0")
+          (Zoom "100")
+          (Occurrence "/"))
+        (Path
+           "C:\USERS\Public\DOCUMENTS\LBS\SPICE\TPS63806_PSPICE_TRANS\TPS63806_TRANS.DSN")
+        (Schematic "STARTUP")
+        (Page "PAGE1")))
+    (MPSSessionName "Public")
+    (ISPCBBASICLICENSE "false"))
+  (MPSSessionName "USER")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\TI\TPS63806\tps63806_trans.DSN")
+      (Path "Design Resources"
+         "C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\TI\TPS63806\tps63806_trans.DSN"
+         "STARTUP"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 310 0 525"))
+      (Tab 0)))
+  (Folder "Logs"))

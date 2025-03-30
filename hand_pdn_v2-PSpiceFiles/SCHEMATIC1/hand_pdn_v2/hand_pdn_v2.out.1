@@ -1,0 +1,3848 @@
+
+**** 05/01/24 00:01:19 **** PSpice 22.1.0 (6 October 2022) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-hand_pdn_v2"  [ c:\dennis\develop\simulation\orcad\project\hand_pdn_v2\hand_pdn_v2-pspicefiles\schematic1\ha
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "hand_pdn_v2.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../third_party/ti/tps63805/tps63805_trans.lib" 
+.LIB "../../../third_party/ti/tps63806/tps63806_trans.lib" 
+.LIB "../../../third_party/ti/tps61023/library/tps61023_trans.lib" 
+.LIB "../../../third_party/diode inc/dmp2035uvt.lib" 
+.LIB "../../../third_party/ti/tps22965/tps22965_trans.lib" 
+.LIB "../../../third_party/murata/ferrite bead/blm18sg700tz1.lib" 
+* From [PSPICE NETLIST] section of C:\Dennis\Develop\Simulation\ORCAD\cdssetup\OrCAD_PSpice\22.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 30m 0.2m 50n 
+.OPTIONS ADVCONV
+.OPTIONS ABSTOL= 1e-10
+.OPTIONS RELTOL= 0.01
+.OPTIONS VNTOL= 1e-7
+.OPTIONS LIMIT= 1E12
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source HAND_PDN_V2
+V_V1         VBAT 0 {VBAT_VALUE}
+V_V3         N05747 0  
++PWL 0 0 19.999m 0 20m {VBUS_VALUE} 25m {VBUS_VALUE} 25.001m 0 
+R_R1         N00365 0  100k TC=0,0 
+R_R2         VBUS 0  100k TC=0,0 
+C_C1         V_LOAD_SHARING 0  10n IC=0 TC=0,0 
+X_U5         V_LOAD_SHARING V_LOAD_SHARING_FILTED BLM18SG700TZ1
+C_C2         0 V_LOAD_SHARING_FILTED  100n IC=0 TC=0,0 
+C_C3         0 N011101  4.7u IC=0 TC=0,0 
+X_U6         N01337 V_LOAD_SHARING_FILTED V_LOAD_SHARING_FILTED
++  V_LOAD_SHARING_FILTED V_LOAD_SWITCH_OUT V_LOAD_SWITCH_OUT
++  V_LOAD_SHARING_FILTED 0 TPS22965_TRANS
+C_C4         0 V_LOAD_SHARING_FILTED  1u IC=0 TC=0,0 
+C_C5         0 N01337  8.2n IC=0 TC=0,0 
+X_U7         N00322 N00326 VBUS DMP2035UVT
+X_U8         N00365 N00526 VBAT DMP2035UVT
+X_U9         N00322 N00326 V_LOAD_SHARING DMP2035UVT
+X_U10         N00365 N00526 V_LOAD_SHARING DMP2035UVT
+X_S1    N05747 0 N05747 VBUS SCHEMATIC1_S1 
+C_C6         0 V_LOAD_SWITCH_OUT  100u IC=0 TC=0,0 
+X_U11         V_LOAD_SWITCH_OUT TPS61023_FB 0 N07126 V_LOAD_SWITCH_OUT V5V
++  TPS61023_SCHEMATIC 
+C_C7         V_LOAD_SWITCH_OUT 0  10u IC=0 TC=0,0 
+C_C8         TPS61023_FB V5V  3p IC=0 TC=0,0 
+R_R4         TPS61023_FB V5V  732k TC=0,0 
+R_R5         0 TPS61023_FB  100k TC=0,0 
+L_L1         N07126 V_LOAD_SWITCH_OUT  1uH IC=0 
+C_C9         V5V 0  10.5u IC=0 TC=0,0 
+X_U12         0 N13404 N10413 0 0 N09969 N09969 N09973 N09973 0 N0994712
++  V_LOAD_SWITCH_OUT V_LOAD_SWITCH_OUT V3V3 V3V3 TPS63805_TRANS PARAMS:
++  STEADY_STATE=0
+C_C11         V_LOAD_SWITCH_OUT 0  10u IC=0 TC=0,0 
+L_L2         N09969 N09973  0.47u IC=0 
+C_C12         V3V3 0  42.3u IC=0 TC=0,0 
+R_R11         V3V3 0  {V3V3_VALUE/I3V3_VALUE} TC=0,0 
+R_R8         V3V3 N10413  511k TC=0,0 
+R_R9         N10413 0  91k TC=0,0 
+R_R10         V3V3 N0994712  100k TC=0,0 
+R_R6         V5V 0  {V5V_VALUE/I5V_VALUE} TC=0,0 
+R_R3         V_LOAD_SHARING_FILTED N011101  1 TC=0,0 
+R_R12         V_LOAD_SWITCH_OUT N13404  75k TC=0,0 
+R_R13         N13404 0  49.9k TC=0,0 
+C_C13         N13404 0  100n IC=0 TC=0,0 
+R_R16         N00326 N00365  100 TC=0,0 
+R_R17         N00526 VBUS  100 TC=0,0 
+.PARAM  vbus_unplug_time=20m v3v3_value=3.3 vbat_value=3.7 ss=0 vbus_value=5.25
++  i3v3_value=0.4 vbus_unplug_time_p1u=19.999m v5v_value=5 i5v_value=0.6
++  vbus_insert_time=10m vbus_insert_time_m1u=9.999m
+
+.subckt SCHEMATIC1_S1 1 2 3 4  
+S_S1         3 4 1 2 _S1
+RS_S1         1 2 1G
+.MODEL         _S1 VSWITCH Roff=1Meg Ron=0.01 Voff=2.5 Von=2.8
+.ends SCHEMATIC1_S1
+
+**** RESUMING hand_pdn_v2.cir ****
+.END
+
+WARNING(ORPSIM-15256): <X_U12.STEADY_STATE> not a subcircuit param
+
+**** 05/01/24 00:01:19 **** PSpice 22.1.0 (6 October 2022) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-hand_pdn_v2"  [ c:\dennis\develop\simulation\orcad\project\hand_pdn_v2\hand_pdn_v2-pspicefiles\schematic1\ha
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U7.DCGD       X_U7.DSUB       X_U7.DLIM       X_U8.DCGD       
+          IS   10.000000E-15    9.271000E-09  100.000000E-06   10.000000E-15 
+           N                    1.204                                        
+          BV                   20                                            
+          RS                     .03691                                      
+         CJO  977.400000E-12   64.250000E-12                  977.400000E-12 
+          VJ     .6              .6                              .6          
+           M     .6              .6                              .6          
+
+
+               X_U8.DSUB       X_U8.DLIM       X_U9.DCGD       X_U9.DSUB       
+          IS    9.271000E-09  100.000000E-06   10.000000E-15    9.271000E-09 
+           N    1.204                                           1.204        
+          BV   20                                              20            
+          RS     .03691                                          .03691      
+         CJO   64.250000E-12                  977.400000E-12   64.250000E-12 
+          VJ     .6                              .6              .6          
+           M     .6                              .6              .6          
+
+
+               X_U9.DLIM       X_U10.DCGD      X_U10.DSUB      X_U10.DLIM      
+          IS  100.000000E-06   10.000000E-15    9.271000E-09  100.000000E-06 
+           N                                    1.204                        
+          BV                                   20                            
+          RS                                     .03691                      
+         CJO                  977.400000E-12   64.250000E-12                 
+          VJ                     .6              .6                          
+           M                     .6              .6                          
+
+
+               D_D1            D_body          DD              X_U11.X_D1.dd7  
+          IS    1.000000E-15    1.000000E-15    1.000000E-15    1.000000E-15 
+           N     .1              .7              .01             .01         
+          RS     .05             .05                            5.000000E-03 
+          TT   10.000000E-12   10.000000E-12   10.000000E-12   10.000000E-12 
+
+
+               X_U12.X_U_GMI_U2.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_PG_U14.d_d1 
+          IS    1.000000E-15 
+           N     .1          
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U684.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U691.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U674.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U687.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U682.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U689.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U663.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U673.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U678.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U656.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U664.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U662.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U666.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U669.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_OFFtimer_U657.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_BBMode_U664.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_BBMode_U663.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_BBMode_U665.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U12.X_U_Mode_U841.d_d1 
+          IS    1.000000E-15 
+           N     .1          
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U11.X_U1.X_U5.dd 
+          IS    1.000000E-15 
+           N     .01         
+          TT   10.000000E-12 
+
+
+               X_U11.X_U1.X_U6.dd 
+          IS    1.000000E-15 
+           N     .01         
+          TT   10.000000E-12 
+
+
+               X_U11.X_U6.X_U22.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U11.X_U9.X_U624.d_d1 
+          IS    1.000000E-15 
+           N     .1          
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U11.X_U3.X_U22.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+**** 05/01/24 00:01:19 **** PSpice 22.1.0 (6 October 2022) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-hand_pdn_v2"  [ c:\dennis\develop\simulation\orcad\project\hand_pdn_v2\hand_pdn_v2-pspicefiles\schematic1\ha
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U7.PMOS       X_U8.PMOS       X_U9.PMOS       X_U10.PMOS      
+               PMOS            PMOS            PMOS            PMOS            
+       LEVEL    3               3               3               3            
+           L  100.000000E-06  100.000000E-06  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06  100.000000E-06  100.000000E-06 
+         VTO    -.8663          -.8663          -.8663          -.8663       
+          KP   56.81           56.81           56.81           56.81         
+       GAMMA    1.001098        1.001098        1.001098        1.001098     
+         PHI     .695434         .695434         .695434         .695434     
+      LAMBDA    0               0               0               0            
+          IS   10.000000E-15   10.000000E-15   10.000000E-15   10.000000E-15 
+          JS    0               0               0               0            
+          PB     .8              .8              .8              .8          
+        PBSW     .8              .8              .8              .8          
+          CJ  322.081100E-06  322.081100E-06  322.081100E-06  322.081100E-06 
+        CJSW    0               0               0               0            
+        CGSO    0               0               0               0            
+        CGDO    0               0               0               0            
+        CGBO    0               0               0               0            
+        NSUB   10.000000E+15   10.000000E+15   10.000000E+15   10.000000E+15 
+         TOX   60.000000E-09   60.000000E-09   60.000000E-09   60.000000E-09 
+          XJ    0               0               0               0            
+       UCRIT   10.000000E+03   10.000000E+03   10.000000E+03   10.000000E+03 
+        VMAX    1.000000E+06    1.000000E+06    1.000000E+06    1.000000E+06 
+         ETA    1.000000E-03    1.000000E-03    1.000000E-03    1.000000E-03 
+       KAPPA   19.32           19.32           19.32           19.32         
+      DIOMOD    1               1               1               1            
+         VFB    0               0               0               0            
+        LETA    0               0               0               0            
+        WETA    0               0               0               0            
+          U0  400             400             400             400            
+        TEMP    0               0               0               0            
+         VDD    5               5               5               5            
+       XPART    0               0               0               0            
+
+
+               MbreakP         NMOS01          
+               PMOS            NMOS            
+       LEVEL    1               1            
+           L   10.000000E-09  100.000000E-06 
+           W  450.000000E-09  100.000000E-06 
+         VTO    -.7             1.05         
+          KP   10              11            
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA     .12            1.000000E-03 
+          IS   10.000000E-15   10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO    0               0            
+        CGDO    0               0            
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 05/01/24 00:01:19 **** PSpice 22.1.0 (6 October 2022) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-hand_pdn_v2"  [ c:\dennis\develop\simulation\orcad\project\hand_pdn_v2\hand_pdn_v2-pspicefiles\schematic1\ha
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_S1._S1        X_U6.X_U1_S1._U1_S1 
+         RON     .01            1.000000E-03 
+        ROFF    1.000000E+06  100.000000E+06 
+         VON    2.8              .8          
+        VOFF    2.5              .2          
+
+
+               X_U6.X_U1_S2._U1_S2 
+         RON    1.000000E-03 
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U6.X_U2_S2._U2_S2 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .2          
+        VOFF     .8          
+
+
+               X_U6.X_U2_S1._U2_S1             X_U11.X_S4._S4  X_U11.X_S2._S2  
+         RON    1.000000E-03                    1.000000E-03    1.000000E-03 
+        ROFF   10.000000E+06                  100.000000E+06  100.000000E+06 
+         VON     .2                              .8              .8          
+        VOFF     .8                              .2              .2          
+
+
+               X_U11.X_S1._S1  X_U11.X_S3._S3  
+         RON     .047            .068        
+        ROFF    1.000000E+06    1.000000E+06 
+         VON     .7              .7          
+        VOFF     .2              .2          
+
+
+               X_U12.X_U_EA_S1._U_EA_S1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_GMI_U831.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U12.X_U_PG_S1._U_PG_S1 
+         RON   23            
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_S34._U_OFFtimer_S34 
+         RON    1.000000E-03 
+        ROFF   30.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_S37._U_OFFtimer_S37 
+         RON    1.000000E-03 
+        ROFF   30.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_S35._U_OFFtimer_S35 
+         RON    1.000000E-03 
+        ROFF   30.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_S43._U_OFFtimer_S43 
+         RON    1.000000E-03 
+        ROFF   30.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_S42._U_OFFtimer_S42 
+         RON  350            
+        ROFF   10.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_U859.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U12.X_U_OFFtimer_U847.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U12.X_U_OFFtimer_U761.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U12.X_U_OFFtimer_U759.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U12.X_U_OFFtimer_S44._U_OFFtimer_S44 
+         RON    1.200000E+03 
+        ROFF   10.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_S31._U_OFFtimer_S31 
+         RON    2.500000E+03 
+        ROFF    5.000000E+03 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_S33._U_OFFtimer_S33 
+         RON    1.000000E-03 
+        ROFF   30.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_S32._U_OFFtimer_S32 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .2          
+        VOFF     .8          
+
+
+               X_U12.X_U_OFFtimer_S39._U_OFFtimer_S39 
+         RON    1.000000E-03 
+        ROFF   30.000000E+09 
+         VON     .4          
+        VOFF     .45         
+
+
+               X_U12.X_U_OFFtimer_S40._U_OFFtimer_S40 
+         RON    2.500000E+03 
+        ROFF   10.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_OFFtimer_U760.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U12.X_U_OFFtimer_S41._U_OFFtimer_S41 
+         RON    1.000000E-03 
+        ROFF   30.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_BBMode_U833.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U12.X_U_Driver_S1._U_Driver_S1 
+         RON     .047        
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_Driver_S2._U_Driver_S2 
+         RON     .034        
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_Driver_S5._U_Driver_S5 
+         RON   23            
+        ROFF  100.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_Driver_S3._U_Driver_S3 
+         RON     .044        
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U12.X_U_Driver_S4._U_Driver_S4 
+         RON     .022        
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U11.X_U1.X_S2._S2 
+         RON    1.000000E-03 
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U11.X_U1.X_S1._S1 
+         RON    1.000000E-03 
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U11.X_U4.X_S69._S69 
+         RON    1.000000E-03 
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U11.X_U4.X_S68._S68 
+         RON    1.000000E+06 
+        ROFF  100.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U11.X_U3.X_U630.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U11.X_U3.X_S2._S2 
+         RON     .02         
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+**** 05/01/24 00:01:19 **** PSpice 22.1.0 (6 October 2022) **** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-hand_pdn_v2"  [ c:\dennis\develop\simulation\orcad\project\hand_pdn_v2\hand_pdn_v2-pspicefiles\schematic1\ha
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  V5V)-36.49E-15  ( V3V3) 10.04E-30  ( VBAT)    3.7000  ( VBUS) 855.7E-06      
+
+(N00322)     .0221 (N00326)    1.8874 (N00365)    1.8874 (N00526) 855.7E-06     
+
+(N01337) 72.31E-18 (N05747)    0.0000 (N07126)-17.60E-06 (N09969) 10.54E-18     
+
+(N09973) 502.1E-21 (N10413) 1.518E-30 (N13404) 589.1E-27 (X_U5.1)     .1362     
+
+(X_U5.2)     .1362 (X_U5.3)     .1362 (X_U5.4)     .1362 (X_U7.1)     .0221     
+
+(X_U7.2)    1.8874 (X_U7.3) 855.7E-06 (X_U8.1)    3.0138 (X_U8.2) 855.7E-06     
+
+(X_U8.3)    3.6214 (X_U9.1)     .0221 (X_U9.2)    1.8874 (X_U9.3)     .1362     
+
+(N011101) 20.90E-06                   (X_U10.1)    1.1469                       
+
+(X_U10.2) 855.7E-06                   (X_U10.3)     .2149                       
+
+(X_U7.12)    1.8662                   (X_U7.13) 955.7E-06                       
+
+(X_U7.14) 855.7E-06                   (X_U7.15)    1.8661                       
+
+(X_U8.12)     .6871                   (X_U8.13)     .9515                       
+
+(X_U8.14)    3.7000                   (X_U8.15)    3.4356                       
+
+(X_U9.12)    2.0016                   (X_U9.13)     .1363                       
+
+(X_U9.14)     .1362                   (X_U9.15)    2.0015                       
+
+(N0994712) 10.03E-30                  (X_U10.12)   -1.0098                      
+
+(X_U10.13)    -.7740                  (X_U10.14)     .1362                      
+
+(X_U10.15)    -.0995                  (X_U12.B1)    1.0000                      
+
+(X_U6.VIN)     .0098                  (X_U11.MAX) 22.09E-18                     
+
+(X_U11.OVP)    0.0000                 (X_U11.PFM)    1.0000                     
+
+(X_U11.VEA)     .0056                 (X_U12.IVP)    0.0000                     
+
+(X_U12.OVP)    0.0000                 (X_U12.PWM)    0.0000                     
+
+(X_U12.ZCD)    0.0000                 (X_U6.VOUT) 22.09E-18                     
+
+(X_U11.SDWN)    1.0000                (X_U11.VREF) 4.002E-15                    
+
+(X_U12.BUCK)    0.0000                (X_U12.COMP)    1.0823                    
+
+(X_U12.FPWM)    0.0000                (X_U12.SDWN)    0.0000                    
+
+(TPS61023_FB)-36.49E-15               (X_U12.BOOST)    0.0000                   
+
+(X_U12.EN_OK)    0.0000               (X_U6.U2_IDT) 1.350E-06                   
+
+(X_U6.U2_IRT) 875.0E-09               (X_U11.FB_INT)-36.49E-15                  
+
+(X_U11.ISENSE)-1.456E-12              (X_U11.N02524)    0.0000                  
+
+(X_U11.N02652)    1.0000              (X_U11.N02676)     .6000                  
+
+(X_U11.N02682)-17.60E-06              (X_U11.N02802)-17.60E-06                  
+
+(X_U11.N03284)    0.0000              (X_U11.N03428)    -.2000                  
+
+(X_U11.N03512)    0.0000              (X_U11.N03590)    0.0000                  
+
+(X_U11.N03668)     .0020              (X_U11.N03750)    -.3435                  
+
+(X_U11.N03792)    -.0036              (X_U11.N03994)    -.0036                  
+
+(X_U11.N04164)     .3435              (X_U11.N04226)    -.0036                  
+
+(X_U11.N04404)    5.0000              (X_U11.N04714)-287.0E-15                  
+
+(X_U11.N18081)-36.49E-15              (X_U12.ISENSE) 115.5E-27                  
+
+(X_U12.SDWN_B)    1.0000              (X_U12.TONMAX)    0.0000                  
+
+(X_U12.VIN_OK)    0.0000              (X_U6.U2_IDTB) 2.750E-06                  
+
+(X_U6.U2_IRTB) 2.200E-06              (X_U12.BB_MODE)    0.0000                 
+
+(X_U12.IVP_ACT)    0.0000             (X_U12.PWM_INT)    0.0000                 
+
+(X_U12.U_EA_SS) 2.397E-15             (V_LOAD_SHARING)     .1362                
+
+(X_U11.ISEN_LDO) 3.581E-12            (X_U11.SKIP_PFM)    0.0000                
+
+(X_U11.VOUT_INT)-956.8E-15            (X_U11.VOUT_SEN)     .1800                
+
+(X_U11.X_U3.TON)-14.00E-09            (X_U11.X_U616.1)    0.0000                
+
+(X_U12.BB_HDRV1)    0.0000            (X_U12.BB_HDRV2)    0.0000                
+
+(X_U12.BB_LDRV1)    0.0000            (X_U12.BB_LDRV2)    1.0000                
+
+(X_U12.NO_FAULT)    0.0000            (X_U12.PFM_MODE)    1.0000                
+
+(X_U12.U_GMI_XX)    0.0000            (X_U6.N16775939)    0.0000                
+
+(X_U6.N16776794)    1.0000            (X_U6.U1_N00239)     .9000                
+
+(X_U6.U1_N00271)     .3000            (X_U6.U1_VB_2P5) 85.45E-09                
+
+(X_U6.U1_VB_5P5) 61.04E-09            (X_U6.U2_VBIAS1) 111.0E-09                
+
+(X_U6.U2_VBIAS2)-11.72E-06            (X_U6.X_U1_U1.1)    0.0000                
+
+(X_U11.GATE_NMOS)    0.0000           (X_U11.GATE_PMOS)    0.0000               
+
+(X_U11.PRECHARGE)    0.0000           (X_U11.X_U2.HDRV)    0.0000               
+
+(X_U11.X_U2.LDRV)    0.0000           (X_U11.X_U2.OVPN)    1.0000               
+
+(X_U11.X_U9.FPWM)    0.0000           (X_U11.X_U9.SKIP)    0.0000               
+
+(X_U12.BB_MODE_B)    1.0000           (X_U12.BB_REGION)    0.0000               
+
+(X_U12.IND_SENSE) 10.05E-27           (X_U12.MODE_HIGH)    0.0000               
+
+(X_U12.N16829483)    1.0000           (X_U12.N16907366)    1.0000               
+
+(X_U12.N16907473)    1.0000           (X_U12.N16907607)    1.0000               
+
+(X_U12.N16907623)    1.0000           (X_U12.N16910115)    1.0000               
+
+(X_U12.N16910144)    1.0000           (X_U12.N16910398)    1.0000               
+
+(X_U12.N16910468)    1.0000           (X_U12.N16910561)    1.0000               
+
+(X_U12.N16910663)    1.0000           (X_U12.N16910725)    1.0000               
+
+(X_U12.N16910850)    1.0000           (X_U12.N16910853)    1.0000               
+
+(X_U12.N16941786)    1.0000           (X_U12.N16942405)    1.0000               
+
+(X_U12.N17648959)    1.0000           (X_U12.N17677210)    0.0000               
+
+(X_U12.N18432614)    1.0000           (X_U12.N18787013)    1.0000               
+
+(X_U12.PRE_HDRV1)    0.0000           (X_U12.PRE_HDRV2)    1.0000               
+
+(X_U12.PRE_LDRV1)    1.0000           (X_U12.PRE_LDRV2)    0.0000               
+
+(X_U12.PWM_RESET)    0.0000           (X_U12.PWM_START)    0.0000               
+
+(X_U12.SKIPPAUSE)    1.0000           (X_U12.U_EA_VREF) 2.397E-15               
+
+(X_U12.X_U1.YINT)    0.0000           (X_U12.X_U2.YINT)    1.0000               
+
+(X_U6.ON_INT_PRE)    0.0000           (X_U6.U1_N427858)-75.45E-12               
+
+(X_U6.U1_N427908)    1.0000           (X_U6.U1_N427944)    0.0000               
+
+(X_U6.U1_N427964)    1.0000           (X_U11.SKIP_PFM_N)    1.0000              
+
+(X_U11.X_U10.YINT)    0.0000          (X_U11.X_U11.YINT)    0.0000              
+
+(X_U11.X_U3.RESET)    1.0000          (X_U11.X_U4.SS_TR) 4.002E-15              
+
+(X_U11.X_U5.EN_OK)    0.0000          (X_U12.U_EA_SSEND)    0.0000              
+
+(X_U12.U_GMI_ISWF)   -2.0000          (X_U12.U_PG_PG_FB)    0.0000              
+
+(X_U6.X_U2_U9.106)    0.0000          (X_U6.X_U2_U9.301) 80.34E-21              
+
+(V_LOAD_SWITCH_OUT) 22.09E-18         (X_U11.X_U3.SKIP_N)    1.0000             
+
+(X_U11.X_U5.EN_INT)    0.0000         (X_U11.X_U5.SDWN_N)    0.0000             
+
+(X_U11.X_U5.VIN_OK)    0.0000         (X_U11.X_U616.INM1)     .2000             
+
+(X_U11.X_U616.INP1)    0.0000         (X_U11.X_U616.INP2)    0.0000             
+
+(X_U12.BOOST_ENTRY)    0.0000         (X_U12.DISCH1_SOME)    0.0000             
+
+(X_U12.DISCH2_SOME)    0.0000         (X_U12.DISCH3_SOME)    0.0000             
+
+(X_U12.PWM_TRIGGER)    0.0000         (X_U12.U_EA_N00231)     .6000             
+
+(X_U12.U_EA_N04642)    1.0823         (X_U12.U_EA_N05897)    1.1750             
+
+(X_U12.U_EA_N43040)    1.1200         (X_U12.U_EA_N76861)    1.1950             
+
+(X_U12.U_EA_N76869)     .0200         (X_U12.U_EA_N76909)    0.0000             
+
+(X_U12.U_GMI_BLNCK)    0.0000         (X_U12.U_GMI_ICTRL)     .3609             
+
+(X_U12.U_PG_N00172)    5.7000         (X_U12.U_PG_N00464)     .4750             
+
+(X_U12.U_PG_N00552)     .0250         (X_U12.X_U_EA_U3.1)    0.0000             
+
+(X_U12.X_U_PG_U2.1)    0.0000         (X_U12.X_U_PG_U3.1)    0.0000             
+
+(X_U12.X_U_PG_U6.1)    0.0000         (X_U6.U1_N14507001)    2.0000             
+
+(X_U6.U2_N14500641)     .0098         (X_U6.U2_N14501700) 22.09E-18             
+
+(X_U6.U2_N16479819)  275.0000         (X_U6.U2_N16484817) 111.0E-09             
+
+(X_U6.X_U1_U1.INM1)     .8895         (X_U6.X_U1_U1.INP1)    0.0000             
+
+(X_U6.X_U1_U1.INP2)    0.0000         (X_U6.X_U2_U10.106)     .0098             
+
+(X_U6.X_U2_U10.301) 24.87E-15         (X_U11.PASS_THROUGH)    0.0000            
+
+(X_U11.PRECHARGE_ON)    0.0000        (X_U11.X_U3.TON_EXP)    1.0000            
+
+(X_U11.X_U5.VOUT_OK)    0.0000        (X_U12.BB_EXIT_BUCK)    0.0000            
+
+(X_U12.PG_LOGIC_OUT)    1.0000        (X_U12.U_EA_BANDGAP)     .5000            
+
+(X_U12.U_EA_N114925)    1.0000        (X_U12.VI_GR_VO_NEW)    1.0000            
+
+(X_U12.VO_GR_VI_NEW)    0.0000        (X_U6.X_U1_U43.YINT)    0.0000            
+
+(X_U6.X_U1_U44.YINT)    0.0000        (X_U6.X_U1_U46.YINT)    1.0000            
+
+(X_U11.X_U3.ISEN_INT)    0.0000       (X_U11.X_U3.X_U615.1)    1.0000           
+
+(X_U11.X_U5.X_U615.1)    0.0000       (X_U11.X_U5.X_U616.1)    0.0000           
+
+(X_U11.X_U5.X_U617.1)    0.0000       (X_U11.X_U6.X_U615.1)    0.0000           
+
+(X_U11.X_U6.X_U616.1)    1.0000       (X_U11.X_U6.X_U618.1)    1.0000           
+
+(X_U11.X_U7.X_U616.1)    0.0000       (X_U11.X_U9.X_U616.1)    0.0000           
+
+(X_U11.X_U9.X_U618.1) 56.96E-18       (X_U11.X_U9.X_U619.1)    1.0000           
+
+(X_U12.BB_EXIT_BOOST)    0.0000       (X_U12.BB_REGION_NEW)    0.0000           
+
+(X_U12.SKIPPAUSE_BAR)    0.0000       (X_U12.TIMER_EXPIRES)    0.0000           
+
+(X_U12.U_EA_VREF_INT) 2.397E-15       (X_U12.U_Mode_N02181)    1.7000           
+
+(X_U12.U_Mode_N02189)     .4500       (X_U12.U_Mode_N04389)    1.1000           
+
+(X_U12.U_Mode_N04397)     .1000       (X_U12.U_Mode_N04678)    1.2000           
+
+(X_U12.U_Mode_N04686)     .4000       (X_U12.U_OFFtimer_QA)    0.0000           
+
+(X_U12.U_OFFtimer_QB)    0.0000       (X_U12.X_U_Mode_U1.1)    0.0000           
+
+(X_U12.X_U_Mode_U2.1)    0.0000       (X_U12.X_U_Mode_U3.1)    0.0000           
+
+(X_U6.U2_VGATE_CLAMP)     .0302       (X_U11.X_U1.N16782062)     .0056          
+
+(X_U11.X_U1.N16784843)     .0150      (X_U11.X_U1.N16786290)     .2950          
+
+(X_U11.X_U1.N16788044) 795.9E-15      (X_U11.X_U2.N16776358)    1.0000          
+
+(X_U11.X_U2.N16776364)    0.0000      (X_U11.X_U2.N16776520)    1.0000          
+
+(X_U11.X_U2.N16776526)    0.0000      (X_U11.X_U2.N16781894)    1.0000          
+
+(X_U11.X_U2.N16782385)    0.0000      (X_U11.X_U2.N16782723)    1.0000          
+
+(X_U11.X_U2.N16793571)    0.0000      (X_U11.X_U2.N16794319)    0.0000          
+
+(X_U11.X_U2.N16794600)    1.0000      (X_U11.X_U2.N16802886)    0.0000          
+
+(X_U11.X_U3.BLNK_TIME)    0.0000      (X_U11.X_U3.N16760203)-14.00E-06          
+
+(X_U11.X_U3.N16760209)    2.0000      (X_U11.X_U3.N16760219) 80.02E-15          
+
+(X_U11.X_U3.N16760623)    1.0000      (X_U11.X_U3.N16788226)    0.0000          
+
+(X_U11.X_U3.N16788246)    0.0000      (X_U11.X_U3.N16794413)    1.0000          
+
+(X_U11.X_U3.N16798891)    1.0000      (X_U11.X_U3.N16799638)    0.0000          
+
+(X_U11.X_U3.N16805500)    0.0000      (X_U11.X_U3.N16833195)    0.0000          
+
+(X_U11.X_U3.N16834033)    1.0000      (X_U11.X_U3.N16851858)    1.0000          
+
+(X_U11.X_U3.N16852133)    0.0000      (X_U11.X_U3.RESET_INT)    1.0000          
+
+(X_U11.X_U3.X_U22.my5)    1.0000      (X_U11.X_U3.X_U22.qbr)    1.0000          
+
+(X_U11.X_U3.X_U22.qqq)    -.0096      (X_U11.X_U3.X_U630.ch)    1.0000          
+
+(X_U11.X_U4.N16715897)    0.0000      (X_U11.X_U4.N16715923)    1.0000          
+
+(X_U11.X_U4.N16734545) 4.002E-15      (X_U11.X_U5.N16760737)    1.2000          
+
+(X_U11.X_U5.N16760758)     .7800      (X_U11.X_U5.N16761003)    1.7900          
+
+(X_U11.X_U5.N16761019)     .0020      (X_U11.X_U5.N16761451)    2.1900          
+
+(X_U11.X_U5.N16761467)     .0100      (X_U11.X_U5.N16764381)    0.0000          
+
+(X_U11.X_U6.N16760966)     .0100      (X_U11.X_U6.N16761083)    0.0000          
+
+(X_U11.X_U6.N16761379)    1.0000      (X_U11.X_U6.N16762471)    1.0000          
+
+(X_U11.X_U6.N16762684) 50.00E-06      (X_U11.X_U6.N16763662)    1.0000          
+
+(X_U11.X_U6.N16771362)     .0100      (X_U11.X_U6.N16774814)    1.0000          
+
+(X_U11.X_U6.N16775115)    0.0000      (X_U11.X_U6.N16776473)     .6060          
+
+(X_U11.X_U6.N16777030)     .5820      (X_U11.X_U6.X_U22.my5)    1.0000          
+
+(X_U11.X_U6.X_U22.qbr)    1.0000      (X_U11.X_U6.X_U22.qqq)    -.0096          
+
+(X_U11.X_U7.N16761502)     .1000      (X_U11.X_U7.N16761602)    5.7000          
+
+(X_U11.X_U9.N16761158)    1.2000      (X_U11.X_U9.N16761170)     .8000          
+
+(X_U11.X_U9.N16761926)-36.49E-15      (X_U11.X_U9.N16761940) 4.042E-15          
+
+(X_U11.X_U9.N16763091) 50.00E-06      (X_U11.X_U9.N16763641)     .0200          
+
+(X_U11.X_U9.N16763659)     .0020      (X_U11.X_U9.N16764440)    1.0000          
+
+(X_U11.X_U9.N16769550) 56.96E-18      (X_U11.X_U9.N16786337)    1.0000          
+
+(X_U11.X_U9.N16788254)    0.0000      (X_U12.BB_ENTRY_BOOST)    0.0000          
+
+(X_U12.OVP_VOUT_DISCH)    0.0000      (X_U12.U_Driver_HDRV1)    0.0000          
+
+(X_U12.U_Driver_HDRV2)    0.0000      (X_U12.U_Driver_LDRV1)    0.0000          
+
+(X_U12.U_Driver_LDRV2)    0.0000      (X_U12.U_EA_N16768276)    0.0000          
+
+(X_U12.U_EA_N16768288) 11.05E-18      (X_U12.U_EA_N16768328)     .0750          
+
+(X_U12.U_EA_VREF_FEED) 76.00E-12      (X_U12.U_GMI_CL_LIMIT)    4.5000          
+
+(X_U12.U_OFFtimer_VDC)    5.8000      (X_U12.U_PG_N16765851)     .1500          
+
+(X_U12.U_PG_N16768007)    5.7000      (X_U12.U_PG_N16768069)     .1500          
+
+(X_U12.U_PG_N16773421)    1.0000      (X_U12.U_PG_N16813847)    1.0000          
+
+(X_U12.U_PG_N16815252)    1.0000      (X_U12.VIN_GR_VO_BUCK)    1.0000          
+
+(X_U12.VO_GR_VI_BOOST)    0.0000      (X_U12.X_U_EA_U1.YINT)    0.0000          
+
+(X_U12.X_U_EA_U3.INM1)     .1127      (X_U12.X_U_EA_U3.INP1)    0.0000          
+
+(X_U12.X_U_EA_U3.INP2)    0.0000      (X_U12.X_U_EA_U4.YINT)    1.0000          
+
+(X_U12.X_U_EA_U5.YINT)    1.0000      (X_U12.X_U_EA_U6.YINT)    1.0000          
+
+(X_U12.X_U_EA_U9.YINT)    0.0000      (X_U12.X_U_GMI_U2.my5)    1.0000          
+
+(X_U12.X_U_GMI_U2.qbr)    1.0000      (X_U12.X_U_GMI_U2.qqq) 2.002E-15          
+
+(X_U12.X_U_PG_U2.INM1)     .4750      (X_U12.X_U_PG_U2.INP1)    0.0000          
+
+(X_U12.X_U_PG_U2.INP2)    0.0000      (X_U12.X_U_PG_U3.INM1)    5.7000          
+
+(X_U12.X_U_PG_U3.INP1)    0.0000      (X_U12.X_U_PG_U3.INP2)    0.0000          
+
+(X_U12.X_U_PG_U6.INM1)    5.7000      (X_U12.X_U_PG_U6.INP1)    0.0000          
+
+(X_U12.X_U_PG_U6.INP2)    0.0000      (X_U12.X_U_PG_U9.YINT)    1.0000          
+
+(V_LOAD_SHARING_FILTED)     .0105     (X_U11.X_U3.N167609210)     .0020         
+
+(X_U11.X_U3.X_U22.qint)    -.0096     (X_U11.X_U6.X_U22.qint)    -.0096         
+
+(X_U12.U_Driver_N00199) 22.09E-18     (X_U12.U_Driver_N00214) 10.54E-18         
+
+(X_U12.U_GMI_N16771084)    0.0000     (X_U12.U_GMI_N16771134)    0.0000         
+
+(X_U12.U_GMI_N16771188)    1.0000     (X_U12.U_GMI_N16850824)    0.0000         
+
+(X_U12.U_GMI_N16949901)    0.0000     (X_U12.U_GMI_N16985147)    0.0000         
+
+(X_U12.U_OFFtimer_1VDC)    1.0000     (X_U12.U_OFFtimer_BOON)    1.0000         
+
+(X_U12.U_OFFtimer_BUOF)    0.0000     (X_U12.U_OFFtimer_ZCDB)    1.0000         
+
+(X_U12.X_U_EA_U8.YINT1)    1.0000     (X_U12.X_U_EA_U8.YINT2)    1.0000         
+
+(X_U12.X_U_EA_U8.YINT3)    1.0000     (X_U12.X_U_GMI_U1.Yint)    0.0000         
+
+(X_U12.X_U_GMI_U2.qint) 2.002E-15     (X_U12.X_U_GMI_U3.Yint)    0.0000         
+
+(X_U12.X_U_GMI_U831.ch)    0.0000     (X_U12.X_U_PG_U10.YINT)    1.0000         
+
+(X_U12.X_U_PG_U11.YINT)    1.0000     (X_U12.X_U_PG_U13.YINT)    0.0000         
+
+(X_U12.X_U_PG_U14.inp1)    1.0000     (X_U12.X_U_PG_U14.yin1)    1.0000         
+
+(X_U12.X_U_PG_U14.yin2)    1.0000     (X_U12.X_U_PG_U14.yin3)    1.0000         
+
+(X_U12.X_U_PG_U14.yin4)    1.0000     (X_U11.X_U2.X_U616.YINT)    1.0000        
+
+(X_U11.X_U2.X_U619.YINT)    1.0000    (X_U11.X_U2.X_U620.YINT)    0.0000        
+
+(X_U11.X_U2.X_U622.YINT)    1.0000    (X_U11.X_U2.X_U624.YINT)    1.0000        
+
+(X_U11.X_U2.X_U625.YINT)    0.0000    (X_U11.X_U2.X_U626.YINT)    0.0000        
+
+(X_U11.X_U2.X_U627.YINT)    1.0000    (X_U11.X_U2.X_U628.YINT)    0.0000        
+
+(X_U11.X_U2.X_U629.YINT)    0.0000    (X_U11.X_U2.X_U630.YINT)    1.0000        
+
+(X_U11.X_U2.X_U631.YINT)    0.0000    (X_U11.X_U2.X_U633.YINT)    0.0000        
+
+(X_U11.X_U2.X_U634.YINT)    0.0000    (X_U11.X_U3.X_U22.myvss)    0.0000        
+
+(X_U11.X_U3.X_U615.INM1)    -.0056    (X_U11.X_U3.X_U615.INP1)    0.0000        
+
+(X_U11.X_U3.X_U615.INP2)     .0020    (X_U11.X_U3.X_U619.YINT)    1.0000        
+
+(X_U11.X_U3.X_U620.YINT)    1.0000    (X_U11.X_U3.X_U622.YINT)    0.0000        
+
+(X_U11.X_U3.X_U623.YINT)    1.0000    (X_U11.X_U3.X_U624.YINT)    0.0000        
+
+(X_U11.X_U3.X_U625.YINT)    0.0000    (X_U11.X_U3.X_U626.YINT)    0.0000        
+
+(X_U11.X_U3.X_U628.YINT)    1.0000    (X_U11.X_U3.X_U629.Yint)    1.0000        
+
+(X_U11.X_U3.X_U630.meas)    1.0000    (X_U11.X_U3.X_U631.YINT)    1.0000        
+
+(X_U11.X_U4.X_U831.YINT)    0.0000    (X_U11.X_U5.X_U615.INM1)    1.2000        
+
+(X_U11.X_U5.X_U615.INP1)    0.0000    (X_U11.X_U5.X_U615.INP2)    0.0000        
+
+(X_U11.X_U5.X_U616.INM1)    1.7900    (X_U11.X_U5.X_U616.INP1)    0.0000        
+
+(X_U11.X_U5.X_U616.INP2)    0.0000    (X_U11.X_U5.X_U617.INM1)    2.1900        
+
+(X_U11.X_U5.X_U617.INP1)    0.0000    (X_U11.X_U5.X_U617.INP2)    0.0000        
+
+(X_U11.X_U5.X_U618.YINT)    0.0000    (X_U11.X_U5.X_U619.YINT)    1.0000        
+
+(X_U11.X_U5.X_U620.YINT)    0.0000    (X_U11.X_U6.X_U22.myvss)    0.0000        
+
+(X_U11.X_U6.X_U615.INM1)     .6060    (X_U11.X_U6.X_U615.INP1)    0.0000        
+
+(X_U11.X_U6.X_U615.INP2)    0.0000    (X_U11.X_U6.X_U616.INM1)-36.51E-15        
+
+(X_U11.X_U6.X_U616.INP1)    0.0000    (X_U11.X_U6.X_U616.INP2)     .0100        
+
+(X_U11.X_U6.X_U617.YINT)    0.0000    (X_U11.X_U6.X_U618.INM1)    -.5820        
+
+(X_U11.X_U6.X_U618.INP1)    0.0000    (X_U11.X_U6.X_U618.INP2) 50.00E-06        
+
+(X_U11.X_U6.X_U619.YINT)    0.0000    (X_U11.X_U6.X_U622.YINT)    1.0000        
+
+(X_U11.X_U7.X_U616.INM1)    5.7000    (X_U11.X_U7.X_U616.INP1)    0.0000        
+
+(X_U11.X_U7.X_U616.INP2)    0.0000    (X_U11.X_U9.X_U616.INM1)    1.2000        
+
+(X_U11.X_U9.X_U616.INP1)    0.0000    (X_U11.X_U9.X_U616.INP2)    0.0000        
+
+(X_U11.X_U9.X_U617.YINT)    1.0000    (X_U11.X_U9.X_U618.INM1) 40.53E-15        
+
+(X_U11.X_U9.X_U618.INP1)    0.0000    (X_U11.X_U9.X_U618.INP2)    0.0000        
+
+(X_U11.X_U9.X_U619.INM1)    -.0144    (X_U11.X_U9.X_U619.INP1)    0.0000        
+
+(X_U11.X_U9.X_U619.INP2)     .0020    (X_U11.X_U9.X_U623.YINT)    0.0000        
+
+(X_U11.X_U9.X_U624.inp1)    0.0000    (X_U11.X_U9.X_U624.yin1)    0.0000        
+
+(X_U11.X_U9.X_U624.yin2)    0.0000    (X_U11.X_U9.X_U624.yin3)    0.0000        
+
+(X_U11.X_U9.X_U624.yin4)    0.0000    (X_U11.X_U9.X_U626.YINT)    1.0000        
+
+(X_U11.X_U9.X_U627.YINT)    1.0000    (X_U11.X_U9.X_U628.YINT)    0.0000        
+
+(X_U12.U_Driver_PWM_BAR)    1.0000    (X_U12.U_GMI_BUCK_RESET)    0.0000        
+
+(X_U12.U_Mode_N16786866)    0.0000    (X_U12.U_OFFtimer_BOCOM)    0.0000        
+
+(X_U12.U_OFFtimer_BUCOM)    0.0000    (X_U12.U_OFFtimer_TSBY2) 1.466E-06        
+
+(X_U12.U_OFFtimer_TSBY5) 133.3E-09    (X_U12.U_PG_PGBAR_DELAY)    0.0000        
+
+(X_U12.X_U_GMI_U2.myvss)    0.0000    (X_U12.X_U_Mode_U1.INM1)    1.2000        
+
+(X_U12.X_U_Mode_U1.INP1)    0.0000    (X_U12.X_U_Mode_U1.INP2)    0.0000        
+
+(X_U12.X_U_Mode_U2.INM1)    1.7000    (X_U12.X_U_Mode_U2.INP1)    0.0000        
+
+(X_U12.X_U_Mode_U2.INP2)    0.0000    (X_U12.X_U_Mode_U3.INM1)    1.1000        
+
+(X_U12.X_U_Mode_U3.INP1)    0.0000    (X_U12.X_U_Mode_U3.INP2)    0.0000        
+
+(X_U11.X_U3.X_U10.N00363)-36.51E-15   (X_U11.X_U3.X_U10.N00593)   -1.0000       
+
+(X_U11.X_U3.X_U10.N00775)     .5000   (X_U11.X_U3.X_U10.N01724)     .0027       
+
+(X_U11.X_U3.X_U10.N01998)-27.00E-09   (X_U11.X_U3.X_U10.N03521)-14.00E-09       
+
+(X_U11.X_U3.X_U10.VOUT_P)     .1000   (X_U11.X_U3.X_U621.YINT1)    0.0000       
+
+(X_U11.X_U3.X_U621.YINT2)    0.0000   (X_U11.X_U3.X_U621.YINT3)    1.0000       
+
+(X_U11.X_U3.X_U630.reset)    0.0000   (X_U12.INDUCTOR_COMP_OUT)    0.0000       
+
+(X_U12.U_Driver_HDRV1_OK)    0.0000   (X_U12.U_Driver_HDRV2_OK)    1.0000       
+
+(X_U12.U_Driver_LDRV1_OK)    0.0000   (X_U12.U_Driver_LDRV2_OK)    0.0000       
+
+(X_U12.U_OFFtimer_BB_RST)    1.0000   (X_U12.U_OFFtimer_BUCK_B)    1.0000       
+
+(X_U12.U_OFFtimer_QA_BAR)    1.0000   (X_U12.U_OFFtimer_QB_BAR)    1.0000       
+
+(X_U12.U_OFFtimer_TONBY2) 6.667E-15   (X_U12.U_OFFtimer_TONBY3) 133.3E-09       
+
+(X_U12.U_OFFtimer_TONBY4) 133.3E-09   (X_U12.U_OFFtimer_TONBY6) 134.0E-09       
+
+(X_U12.X_U_BBMode_U847.1)    1.0000   (X_U12.X_U_BBMode_U848.1)    0.0000       
+
+(X_U12.X_U_BBMode_U849.1)    1.0000   (X_U12.X_U_BBMode_U850.1)    0.0000       
+
+(X_U12.X_U_GMI_U702.YINT)    0.0000   (X_U12.X_U_GMI_U825.YINT)    0.0000       
+
+(X_U12.X_U_GMI_U831.meas)    0.0000   (X_U12.X_U_GMI_U833.YINT)    0.0000       
+
+(X_U12.X_U_GMI_U840.YINT)    0.0000   (X_U12.X_U_GMI_U841.YINT)    0.0000       
+
+(X_U12.X_U_GMI_U842.YINT)    0.0000   (X_U11.X_U3.X_U22.x3.YINT)    0.0000      
+
+(X_U11.X_U3.X_U630.reset2)    0.0000  (X_U11.X_U6.X_U22.x3.YINT)    0.0000      
+
+(X_U12.PWM_RESET_20N_SHOT)    0.0000  (X_U12.U_BBMode_N16941782)    0.0000      
+
+(X_U12.U_BBMode_N16941801)    0.0000  (X_U12.U_BBMode_N16942067)    0.0000      
+
+(X_U12.U_BBMode_N16942156)    0.0000  (X_U12.U_BBMode_N16943295)    0.0000      
+
+(X_U12.U_BBMode_N16943742)    0.0000  (X_U12.U_BBMode_N16952584)    1.0000      
+
+(X_U12.U_BBMode_N16962277)    -.3700  (X_U12.U_BBMode_N16962322) 1.000E-06      
+
+(X_U12.U_BBMode_N16962369)     .0500  (X_U12.U_BBMode_N16962427)     .0500      
+
+(X_U12.U_BBMode_N17026774)     .0100  (X_U12.U_BBMode_N17026781) 1.000E-06      
+
+(X_U12.U_BBMode_N17026834)     .0100  (X_U12.U_BBMode_N17026837)    -.0100      
+
+(X_U12.U_BBMode_SDWN_SHOT)    0.0000  (X_U12.U_Driver_N16773559)    1.0000      
+
+(X_U12.U_Driver_N16776390)    1.0000  (X_U12.U_Driver_N16778144)    0.0000      
+
+(X_U12.U_Driver_N16778240)    1.0000  (X_U12.U_Driver_N16807058)    1.0000      
+
+(X_U12.U_Driver_N16815558)    0.0000  (X_U12.U_Driver_N16840731)    0.0000      
+
+(X_U12.U_Driver_N16851579)    1.0000  (X_U12.U_Driver_N16851759)    0.0000      
+
+(X_U12.U_Driver_N16859689)    0.0000  (X_U12.U_Driver_N16864262)    0.0000      
+
+(X_U12.U_Driver_N16864914)    0.0000  (X_U12.U_Driver_N16901036)    1.2000      
+
+(X_U12.U_Driver_N17066231)    1.0000  (X_U12.U_Driver_N17169433)    1.0000      
+
+(X_U12.U_Driver_N17177973)    0.0000  (X_U12.U_Driver_N17235621)    1.0000      
+
+(X_U12.U_Driver_N17361947)    1.0000  (X_U12.U_Driver_N17394895)    0.0000      
+
+(X_U12.U_Driver_N17401465)    0.0000  (X_U12.U_Driver_N17530440)    0.0000      
+
+(X_U12.U_Driver_VOUT_1_2V)    0.0000  (X_U12.U_EA_SKIPPAUSE_PRE)    1.0000      
+
+(X_U12.U_OFFtimer_PWM_BAR)    1.0000  (X_U12.U_OFFtimer_ZCD_PFM)    0.0000      
+
+(X_U12.X_U_BBMode_U833.ch)    0.0000  (X_U12.X_U_GMI_U2.x3.YINT)    0.0000      
+
+(X_U12.X_U_GMI_U824.YINT1)    0.0000  (X_U12.X_U_GMI_U824.YINT2)    0.0000      
+
+(X_U12.X_U_GMI_U824.YINT3)    1.0000  (X_U12.X_U_GMI_U831.reset)    1.0000      
+
+(X_U12.X_U_Mode_U838.YINT)    0.0000  (X_U12.X_U_Mode_U841.inp1)    0.0000      
+
+(X_U12.X_U_Mode_U841.yin1)    0.0000  (X_U12.X_U_Mode_U841.yin2)    0.0000      
+
+(X_U12.X_U_Mode_U841.yin3)    0.0000  (X_U12.X_U_Mode_U841.yin4)    0.0000      
+
+(X_U12.U_OFFtimer_BLOCK_ON)    0.0000 (X_U12.U_OFFtimer_BOON_BAR)    0.0000     
+
+(X_U12.X_U_BBMode_U663.my5)    1.0000 (X_U12.X_U_BBMode_U663.qbr)    1.0000     
+
+(X_U12.X_U_BBMode_U663.qqq) 2.002E-15 (X_U12.X_U_BBMode_U664.my5)    1.0000     
+
+(X_U12.X_U_BBMode_U664.qbr)    1.0000 (X_U12.X_U_BBMode_U664.qqq) 2.002E-15     
+
+(X_U12.X_U_BBMode_U665.my5)    1.0000 (X_U12.X_U_BBMode_U665.qbr)    1.0000     
+
+(X_U12.X_U_BBMode_U665.qqq)    -.0096 (X_U12.X_U_Driver_U11.YINT)    1.0000     
+
+(X_U12.X_U_Driver_U12.YINT)    1.0000 (X_U12.X_U_Driver_U13.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U14.YINT)    1.0000 (X_U12.X_U_Driver_U19.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U20.YINT)    0.0000 (X_U12.X_U_Driver_U21.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U24.YINT)    1.0000 (X_U12.X_U_Driver_U25.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U26.YINT)    0.0000 (X_U12.X_U_Driver_U27.YINT)    1.0000     
+
+(X_U12.X_U_Driver_U28.YINT)    0.0000 (X_U12.X_U_Driver_U29.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U3.YINT1)    0.0000 (X_U12.X_U_Driver_U3.YINT2)    0.0000     
+
+(X_U12.X_U_Driver_U3.YINT3)    1.0000 (X_U12.X_U_Driver_U30.YINT)    1.0000     
+
+(X_U12.X_U_Driver_U34.YINT)    0.0000 (X_U12.X_U_Driver_U35.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U5.YINT1)    0.0000 (X_U12.X_U_Driver_U5.YINT2)    0.0000     
+
+(X_U12.X_U_Driver_U5.YINT3)    1.0000 (X_U12.X_U_Driver_U7.YINT1)    0.0000     
+
+(X_U12.X_U_Driver_U7.YINT2)    0.0000 (X_U12.X_U_Driver_U7.YINT3)    1.0000     
+
+(X_U12.X_U_Driver_U9.YINT1)    1.0000 (X_U12.X_U_Driver_U9.YINT2)    1.0000     
+
+(X_U12.X_U_Driver_U9.YINT3)    0.0000 (X_U12.X_U_GMI_U831.reset2)    1.0000     
+
+(X_U12.X_U_OFFtimer_U9.MY5)    1.0000 (X_U12.X_U_OFFtimer_U9.Qbr)    1.0000     
+
+(X_U12.X_U_OFFtimer_U9.Qqq)    -.0100 (X_U12.U_OFFtimer_COM_PHASE)    0.0000    
+
+(X_U12.U_OFFtimer_N16907157)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907178)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907227)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907229)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16907236)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907243) 10.54E-18                                          
+
+(X_U12.U_OFFtimer_N16907277)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16907313)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907329)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907349)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907358)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907383)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16907388)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907399) 10.04E-30                                          
+
+(X_U12.U_OFFtimer_N16907448)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907460)     .0010                                          
+
+(X_U12.U_OFFtimer_N16907504)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907529)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907535)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907604)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907724)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16907775)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907967)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16908368)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16908693)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16908795)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16908876)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16908893)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909053)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16909090)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16909108)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909110)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909150)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909153)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909203)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909242)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909355)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909604)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910034)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910101)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910125)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910211)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910216)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910232)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910235) 502.1E-21                                          
+
+(X_U12.U_OFFtimer_N16910239)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910256)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910355)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910371)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910382)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910385)     .0010                                          
+
+(X_U12.U_OFFtimer_N16910455)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910548) 2.008E-30                                          
+
+(X_U12.U_OFFtimer_N16910625)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910657)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910665)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910771)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910818)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910847)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910876)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910889)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16911021)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16922544)     .0022                                          
+
+(X_U12.U_OFFtimer_N16922570)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16997694)    0.0000                                          
+
+(X_U12.U_OFFtimer_N17111743)    1.0000                                          
+
+(X_U12.U_OFFtimer_N17517103)    0.0000                                          
+
+(X_U12.U_OFFtimer_N17748054)    1.0000                                          
+
+(X_U12.U_OFFtimer_N17756284)    1.0000                                          
+
+(X_U12.U_OFFtimer_N17757183)    1.0000                                          
+
+(X_U12.U_OFFtimer_N17779772)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18027008)    1.0000                                          
+
+(X_U12.U_OFFtimer_N18102460)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18125644)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18242113)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18242117)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18400174)    1.0000                                          
+
+(X_U12.U_OFFtimer_N18401083)    1.0000                                          
+
+(X_U12.U_OFFtimer_N18427252)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18741338)    1.0000                                          
+
+(X_U12.U_OFFtimer_N18753455)    5.0000                                          
+
+(X_U12.U_OFFtimer_N18756756)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18769058)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18795888)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19119380)    1.0000                                          
+
+(X_U12.U_OFFtimer_N19165400)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19200499)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19286930)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19290411)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19329286)    1.0000                                          
+
+(X_U12.U_OFFtimer_N19365948)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19372792)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19391435)    1.0000                                          
+
+(X_U12.U_OFFtimer_N19422688)    1.0000                                          
+
+(X_U12.U_OFFtimer_N19549984)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19571072)    0.0000                                          
+
+(X_U12.U_OFFtimer_TOFF_50NS) 10.00E-15                                          
+
+(X_U12.X_U_BBMode_U660.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U661.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U663.qint) 2.002E-15                                          
+
+(X_U12.X_U_BBMode_U664.qint) 2.002E-15                                          
+
+(X_U12.X_U_BBMode_U665.qint)    -.0096                                          
+
+(X_U12.X_U_BBMode_U833.meas)    0.0000                                          
+
+(X_U12.X_U_BBMode_U834.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U835.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U847.INM1)-1.000E-06                                          
+
+(X_U12.X_U_BBMode_U847.INP1)    0.0000                                          
+
+(X_U12.X_U_BBMode_U847.INP2)     .0500                                          
+
+(X_U12.X_U_BBMode_U848.INM1)     .3700                                          
+
+(X_U12.X_U_BBMode_U848.INP1)    0.0000                                          
+
+(X_U12.X_U_BBMode_U848.INP2)    0.0000                                          
+
+(X_U12.X_U_BBMode_U849.INM1)-1.000E-06                                          
+
+(X_U12.X_U_BBMode_U849.INP1)    0.0000                                          
+
+(X_U12.X_U_BBMode_U849.INP2)     .0100                                          
+
+(X_U12.X_U_BBMode_U850.INM1)     .0100                                          
+
+(X_U12.X_U_BBMode_U850.INP1)    0.0000                                          
+
+(X_U12.X_U_BBMode_U850.INP2)    0.0000                                          
+
+(X_U12.X_U_BBMode_U852.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U854.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U855.YINT)    1.0000                                          
+
+(X_U12.X_U_OFFtimer_U12.MY5)    1.0000                                          
+
+(X_U12.X_U_OFFtimer_U12.Qbr)    1.0000                                          
+
+(X_U12.X_U_OFFtimer_U12.Qqq)    -.0100                                          
+
+(X_U12.X_U_OFFtimer_U759.ch)    0.0000                                          
+
+(X_U12.X_U_OFFtimer_U760.ch)    0.0000                                          
+
+(X_U12.X_U_OFFtimer_U761.ch)    0.0000                                          
+
+(X_U12.X_U_OFFtimer_U847.ch)    0.0000                                          
+
+(X_U12.X_U_OFFtimer_U859.ch)    1.0000                                          
+
+(X_U12.X_U_OFFtimer_U9.Qint)    -.0100                                          
+
+(X_U11.X_U6.PASS_THROUGH_INT)    0.0000                                         
+
+(X_U12.X_U_BBMode_U663.myvss)    0.0000                                         
+
+(X_U12.X_U_BBMode_U664.myvss)    0.0000                                         
+
+(X_U12.X_U_BBMode_U665.myvss)    0.0000                                         
+
+(X_U12.X_U_BBMode_U833.reset)    1.0000                                         
+
+(X_U12.X_U_BBMode_U839.YINT1)    0.0000                                         
+
+(X_U12.X_U_BBMode_U839.YINT2)    0.0000                                         
+
+(X_U12.X_U_BBMode_U839.YINT3)    0.0000                                         
+
+(X_U12.X_U_BBMode_U840.YINT1)    0.0000                                         
+
+(X_U12.X_U_BBMode_U840.YINT2)    0.0000                                         
+
+(X_U12.X_U_BBMode_U840.YINT3)    0.0000                                         
+
+(X_U12.X_U_BBMode_U841.YINT1)    0.0000                                         
+
+(X_U12.X_U_BBMode_U841.YINT2)    0.0000                                         
+
+(X_U12.X_U_BBMode_U841.YINT3)    0.0000                                         
+
+(X_U12.X_U_BBMode_U845.YINT1)    0.0000                                         
+
+(X_U12.X_U_BBMode_U845.YINT2)    0.0000                                         
+
+(X_U12.X_U_BBMode_U845.YINT3)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U12.Qint)    -.0100                                         
+
+(X_U12.X_U_OFFtimer_U18.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U19.YINT)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U20.YINT)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U21.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U22.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U23.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U24.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U27.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U28.YINT)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U29.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U31.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U35.YINT)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U36.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U37.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U41.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U42.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U45.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U46.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U656.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U656.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U656.qqq)    -.0096                                         
+
+(X_U12.X_U_OFFtimer_U657.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U657.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U657.qqq)     .0100                                         
+
+(X_U12.X_U_OFFtimer_U662.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U662.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U662.qqq) 2.002E-15                                         
+
+(X_U12.X_U_OFFtimer_U663.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U663.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U663.qqq)    -.0096                                         
+
+(X_U12.X_U_OFFtimer_U664.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U664.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U664.qqq)    -.0096                                         
+
+(X_U12.X_U_OFFtimer_U666.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U666.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U666.qqq)    -.0096                                         
+
+(X_U12.X_U_OFFtimer_U669.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U669.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U669.qqq) 2.002E-15                                         
+
+(X_U12.X_U_OFFtimer_U673.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U673.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U673.qqq)    -.0096                                         
+
+(X_U12.X_U_OFFtimer_U674.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U674.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U674.qqq) 2.002E-15                                         
+
+(X_U12.X_U_OFFtimer_U678.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U678.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U678.qqq) 2.002E-15                                         
+
+(X_U12.X_U_OFFtimer_U682.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U682.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U682.qqq) 2.002E-15                                         
+
+(X_U12.X_U_OFFtimer_U684.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U684.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U684.qqq) 2.002E-15                                         
+
+(X_U12.X_U_OFFtimer_U687.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U687.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U687.qqq)    -.0096                                         
+
+(X_U12.X_U_OFFtimer_U689.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U689.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U689.qqq) 2.002E-15                                         
+
+(X_U12.X_U_OFFtimer_U691.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U691.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U691.qqq) 2.002E-15                                         
+
+(X_U12.X_U_OFFtimer_U9.MYVSS)    0.0000                                         
+
+(X_U12.U_OFFtimer_DISCH4_SOME)    0.0000                                        
+
+(X_U12.U_OFFtimer_DISCH5_SOME)    0.0000                                        
+
+(X_U12.U_OFFtimer_DISCH6_SOME)    0.0000                                        
+
+(X_U12.X_U_BBMode_U833.reset2)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U12.MYVSS)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U30.YINT1)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U30.YINT2)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U30.YINT3)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U40.YINT1)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U40.YINT2)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U40.YINT3)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U43.YINT1)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U43.YINT2)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U43.YINT3)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U652.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U653.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U654.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U655.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U656.qint)    -.0096                                        
+
+(X_U12.X_U_OFFtimer_U657.qint)     .0100                                        
+
+(X_U12.X_U_OFFtimer_U660.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U661.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U662.qint) 2.002E-15                                        
+
+(X_U12.X_U_OFFtimer_U663.qint)    -.0096                                        
+
+(X_U12.X_U_OFFtimer_U664.qint)    -.0096                                        
+
+(X_U12.X_U_OFFtimer_U665.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U666.qint)    -.0096                                        
+
+(X_U12.X_U_OFFtimer_U668.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U669.qint) 2.002E-15                                        
+
+(X_U12.X_U_OFFtimer_U672.Yint)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U673.qint)    -.0096                                        
+
+(X_U12.X_U_OFFtimer_U674.qint) 2.002E-15                                        
+
+(X_U12.X_U_OFFtimer_U677.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U678.qint) 2.002E-15                                        
+
+(X_U12.X_U_OFFtimer_U681.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U682.qint) 2.002E-15                                        
+
+(X_U12.X_U_OFFtimer_U683.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U684.qint) 2.002E-15                                        
+
+(X_U12.X_U_OFFtimer_U686.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U687.qint)    -.0096                                        
+
+(X_U12.X_U_OFFtimer_U688.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U689.qint) 2.002E-15                                        
+
+(X_U12.X_U_OFFtimer_U690.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U691.qint) 2.002E-15                                        
+
+(X_U12.X_U_OFFtimer_U692.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U699.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U734.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U735.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U740.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U741.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U742.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U751.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U754.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U759.meas)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U760.meas)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U761.meas)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U762.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U763.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U764.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U765.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U768.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U771.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U772.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U773.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U775.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U779.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U780.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U781.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U833.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U834.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U835.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U836.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U837.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U838.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U845.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U847.meas)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U850.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U851.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U852.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U853.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U854.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U855.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U856.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U857.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U858.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U859.meas)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U861.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U864.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U865.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U866.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U868.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U9.CLKdel)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U9.CLKint)    0.0000                                        
+
+(X_U12.U_BBMode_TONMAX_DELAYED)    0.0000                                       
+
+(X_U12.U_OFFtimer_PFM_MODE_ACT)    0.0000                                       
+
+(X_U12.X_U_BBMode_U663.x3.YINT)    0.0000                                       
+
+(X_U12.X_U_BBMode_U664.x3.YINT)    0.0000                                       
+
+(X_U12.X_U_BBMode_U665.x3.YINT)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U12.CLKdel)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U12.CLKint)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U651.YINT1)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U651.YINT2)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U651.YINT3)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U656.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U657.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U658.YINT1)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U658.YINT2)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U658.YINT3)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U659.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U659.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U659.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U662.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U663.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U664.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U666.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U667.YINT1)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U667.YINT2)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U667.YINT3)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U669.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U673.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U674.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U675.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U675.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U675.YINT3)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U678.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U682.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U684.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U687.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U689.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U691.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U693.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U693.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U693.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U694.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U694.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U694.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U737.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U737.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U737.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U759.reset)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U760.reset)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U761.reset)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U847.reset)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U859.reset)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U862.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U862.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U862.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U863.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U863.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U863.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U9.X2.YINT)    0.0000                                       
+
+(X_U12.U_OFFtimer_BUCK_50NS_OFF)    0.0000                                      
+
+(X_U12.U_OFFtimer_LATCH_OUT_DEL)    0.0000                                      
+
+(X_U12.U_OFFtimer_PRE_LDRV1_5NS)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U12.X2.YINT)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U759.reset2)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U760.reset2)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U761.reset2)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U777.N00055)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U778.N00055)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U847.reset2)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U859.reset2)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X1.YINT1)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X1.YINT2)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X1.YINT3)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X3.YINT1)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X3.YINT2)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X3.YINT3)    0.0000                                      
+
+(X_U12.U_OFFtimer_PWM_RESET_SHOT)    0.0000                                     
+
+(X_U12.U_OFFtimer_TIMER_BB_START)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X1.YINT1)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X1.YINT2)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X1.YINT3)    1.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X3.YINT1)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X3.YINT2)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X3.YINT3)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U656.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U657.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U662.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U663.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U664.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U666.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U669.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U673.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U674.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U678.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U682.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U684.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U687.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U689.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U691.x3.YINT)    0.0000                                     
+
+(X_U12.U_OFFtimer_BOON_TERMINATION)    0.0000                                   
+
+(X_U12.U_OFFtimer_SET_BB_EXIT_BUCK)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603709.Yint)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603728.YINT)    1.0000                                   
+
+(X_U12.X_U_Driver_U1912603729.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603731.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603733.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603734.YINT)    1.0000                                   
+
+(X_U12.X_U_Driver_U1912603735.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603736.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603737.YINT)    0.0000                                   
+
+(X_U12.X_U_OFFtimer_U777.N14322195)    0.0000                                   
+
+(X_U12.X_U_OFFtimer_U778.N14322195)    1.0000                                   
+
+(X_U12.U_OFFtimer_BB_EXIT_BUCK_SHOT)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603711.YINT1)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603711.YINT2)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603711.YINT3)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603712.YINT1)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603712.YINT2)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603712.YINT3)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603713.YINT1)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603713.YINT2)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603713.YINT3)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603714.YINT1)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603714.YINT2)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603714.YINT3)    0.0000                                  
+
+(X_U12.U_OFFtimer_SET_BB_ENTRY_BOOST)    0.0000                                 
+
+(X_U12.U_OFFtimer_TIMER_EXPIRES_INT1)    0.0000                                 
+
+(X_U12.U_OFFtimer_TIMER_EXPIRES_INT5)    0.0000          
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -7.860E+01
+    V_V3         8.557E-10
+    X_U6.V_V2    4.883E-14
+    X_U6.V_V3    4.899E-08
+    X_U6.V_U1_V5  -4.001E-12
+    X_U6.V_U1_V1   0.000E+00
+    X_U6.V_U1_V4  -1.000E-08
+    X_U6.V_U1_V2   0.000E+00
+    X_U6.V_V1    2.487E-14
+    X_U7.VFB     1.875E-12
+    X_U8.VFB    -2.751E-10
+    X_U9.VFB     1.875E-12
+    X_U10.VFB   -9.126E-11
+    X_U11.V_V5   1.800E-06
+    X_U11.V_V16  -6.010E-13
+    X_U11.V_V17   0.000E+00
+    X_U12.V_U_EA_V6   0.000E+00
+    X_U12.V_U_EA_V3  -7.600E-14
+    X_U12.V_U_EA_V5   0.000E+00
+    X_U12.V_U_EA_V1  -1.201E-12
+    X_U12.V_U_EA_V2   0.000E+00
+    X_U12.V_U_PG_V6   0.000E+00
+    X_U12.V_U_PG_V3   0.000E+00
+    X_U12.V_U_PG_V1   0.000E+00
+    X_U12.V_U_PG_V5   0.000E+00
+    X_U12.V_U_PG_V4   0.000E+00
+    X_U12.V_U_PG_V2   0.000E+00
+    X_U12.V_U_OFFtimer_V19   0.000E+00
+    X_U12.V_U_OFFtimer_V15  -2.000E-04
+    X_U12.V_U_OFFtimer_V9   0.000E+00
+    X_U12.V_U_OFFtimer_V1   0.000E+00
+    X_U12.V_U_OFFtimer_V8   0.000E+00
+    X_U12.V_U_OFFtimer_V20  -1.000E-11
+    X_U12.V_U_OFFtimer_V10  -1.000E-06
+    X_U12.V_U_OFFtimer_V5  -2.000E-03
+    X_U12.V_U_OFFtimer_V16  -1.000E-11
+    X_U12.V_U_OFFtimer_V4   0.000E+00
+    X_U12.V_U_OFFtimer_V6   0.000E+00
+    X_U12.V_U_OFFtimer_V7  -1.000E-09
+    X_U12.V_U_BBMode_V1   0.000E+00
+    X_U12.V_U_BBMode_V2   0.000E+00
+    X_U12.V_U_BBMode_V5   0.000E+00
+    X_U12.V_U_BBMode_V6   0.000E+00
+    X_U12.V_U_Driver_V7   0.000E+00
+    X_U12.V_U_Mode_V5   0.000E+00
+    X_U12.V_U_Mode_V4   0.000E+00
+    X_U12.V_U_Mode_V6   0.000E+00
+    X_U12.V_U_Mode_V1   0.000E+00
+    X_U12.V_U_Mode_V2   0.000E+00
+    X_U12.V_U_Mode_V3   0.000E+00
+    X_U6.X_U2_U10.vsense   2.487E-14
+    X_U6.X_U2_U9.vsense   8.034E-20
+    X_U11.X_H2.VH_H2   1.194E-11
+    X_U11.X_U5.V_V2   0.000E+00
+    X_U11.X_U5.V_V1   0.000E+00
+    X_U11.X_U5.V_V4   0.000E+00
+    X_U11.X_U5.V_V5   0.000E+00
+    X_U11.X_U5.V_V6   0.000E+00
+    X_U11.X_U1.V_V8  -2.904E-13
+    X_U11.X_F1.VF_F1  -6.010E-13
+    X_U11.X_U4.V_V70  -2.001E-12
+    X_U11.X_U7.V_V2   0.000E+00
+    X_U11.X_U7.V_V3   0.000E+00
+    X_U11.X_H1.VH_H1  -1.820E-11
+    X_U11.X_U6.V_V5   0.000E+00
+    X_U11.X_U6.V_V3   0.000E+00
+    X_U11.X_U6.V_V4   0.000E+00
+    X_U11.X_U6.V_V1   0.000E+00
+    X_U11.X_U6.V_V2   0.000E+00
+    X_U11.X_U9.V_V6   0.000E+00
+    X_U11.X_U9.V_V9   0.000E+00
+    X_U11.X_U9.V_V5   0.000E+00
+    X_U11.X_U9.V_V4   0.000E+00
+    X_U11.X_U9.V_V8   0.000E+00
+    X_U11.X_U3.V_V7   0.000E+00
+    X_U11.X_U3.V_V2  -4.001E-12
+    X_U12.X_U_GMI_U2.v1  -1.001E-12
+    X_U12.X_U_GMI_U2.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U684.v1  -1.001E-12
+    X_U12.X_U_OFFtimer_U684.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U691.v1  -1.001E-12
+    X_U12.X_U_OFFtimer_U691.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U674.v1  -1.001E-12
+    X_U12.X_U_OFFtimer_U674.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U687.v1  -1.011E-12
+    X_U12.X_U_OFFtimer_U687.v2  -2.101E-01
+    X_U12.X_U_OFFtimer_U682.v1  -1.001E-12
+    X_U12.X_U_OFFtimer_U682.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U689.v1  -1.001E-12
+    X_U12.X_U_OFFtimer_U689.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U663.v1  -1.011E-12
+    X_U12.X_U_OFFtimer_U663.v2  -2.101E-01
+    X_U12.X_U_OFFtimer_U673.v1  -1.011E-12
+    X_U12.X_U_OFFtimer_U673.v2  -2.101E-01
+    X_U12.X_U_OFFtimer_U678.v1  -1.001E-12
+    X_U12.X_U_OFFtimer_U678.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U656.v1  -1.011E-12
+    X_U12.X_U_OFFtimer_U656.v2  -2.101E-01
+    X_U12.X_U_OFFtimer_U9.V1  -1.011E-12
+    X_U12.X_U_OFFtimer_U9.V2  -5.677E-14
+    X_U12.X_U_OFFtimer_U12.V1  -1.011E-12
+    X_U12.X_U_OFFtimer_U12.V2  -5.677E-14
+    X_U12.X_U_OFFtimer_U664.v1  -1.011E-12
+    X_U12.X_U_OFFtimer_U664.v2  -2.101E-01
+    X_U12.X_U_OFFtimer_U662.v1  -1.001E-12
+    X_U12.X_U_OFFtimer_U662.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U666.v1  -1.011E-12
+    X_U12.X_U_OFFtimer_U666.v2  -2.101E-01
+    X_U12.X_U_OFFtimer_U669.v1  -1.001E-12
+    X_U12.X_U_OFFtimer_U669.v2   9.742E-27
+    X_U12.X_U_OFFtimer_U657.v1  -9.910E-13
+    X_U12.X_U_OFFtimer_U657.v2   1.100E-14
+    X_U12.X_U_BBMode_U664.v1  -1.001E-12
+    X_U12.X_U_BBMode_U664.v2   9.742E-27
+    X_U12.X_U_BBMode_U663.v1  -1.001E-12
+    X_U12.X_U_BBMode_U663.v2   9.742E-27
+    X_U12.X_U_BBMode_U665.v1  -1.011E-12
+    X_U12.X_U_BBMode_U665.v2  -2.101E-01
+    X_U12.X_U_Driver_H2.VH_U_Driver_H2   1.005E-26
+    X_U12.X_U_Driver_H1.VH_U_Driver_H1   1.155E-25
+    X_U11.X_U6.X_U22.v1  -1.011E-12
+    X_U11.X_U6.X_U22.v2  -2.101E-01
+    X_U11.X_U3.X_U22.v1  -1.011E-12
+    X_U11.X_U3.X_U22.v2  -2.101E-01
+
+    TOTAL POWER DISSIPATION   2.91E+02  WATTS
+
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+Reducing minimum delta to make the circuit converge.
+
+ERROR(ORPSIM-15138): Convergence problem in Transient Analysis at Time =  9.077E-03.
+         Time step =  433.7E-21, minimum allowable step size =  1.000E-18
+
+  These voltages failed to converge:
+
+    V(X_U12.ISENSE)           =         0V  \   -31.25mV
+
+  These supply currents failed to converge:
+
+    I(X_U11.E_ABM10)          =    11.41nA  \   -16.39nA
+    I(X_U12.E_U_EA_ABM17)     =   -2.264nA  \   -1.929nA
+    I(X_U12.E_U_EA_E2)        =   -12.50nA  \   -27.70nA
+    I(X_U7.VFB)               =   -37.50nA  \  -108.70nA
+    I(X_U9.VFB)               =    32.71nA  \    84.27nA
+    I(X_U10.VFB)              =   225.77nA  \   -1.078uA
+    I(X_U11.V_V16)            =    11.41nA  \   -16.39nA
+    I(X_U12.V_U_EA_V3)        =   -75.21pA  \   106.57pA
+    I(X_U11.X_U1.V_V8)        =  -221.19pA  \   313.26pA
+    I(X_U11.X_F1.VF_F1)       =    11.41nA  \   -16.39nA
+    I(X_U11.X_U4.V_V70)       =   -3.373nA  \   -2.475nA
+    I(X_U11.X_H1.VH_H1)       =    1.789uA  \    1.761uA
+    I(X_U12.X_U_OFFtimer_U9.V1) =  -596.61pA  \   843.59pA
+    I(X_U12.X_U_OFFtimer_U12.V1) =  -596.61pA  \   843.59pA
+    I(X_U12.X_U_Driver_H1.VH_U_Driver_H1) =         0A  \   -31.25mA
+
+  These devices failed to converge:
+    X_U7.DDG  X_U8.DDG  X_U9.DDG  X_U9.DSD  X_U10.DSD 
+
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  V5V) 197.5E-06  ( V3V3) 71.74E-09  ( VBAT)    3.7000  ( VBUS)     .0011      
+
+(N00322)     .0238 (N00326)    3.6993 (N00365)    3.6993 (N00526)     .0011     
+
+(N01337)    2.9408 (N05747)    0.0000 (N07126)    1.7784 (N09969)     .2855     
+
+(N09973)     .2846 (N10413) 10.84E-09 (N13404)     .4283 (X_U5.1)    3.6986     
+
+(X_U5.2)    3.6986 (X_U5.3)    3.6986 (X_U5.4)    3.6986 (X_U7.1)     .0238     
+
+(X_U7.2)    3.6993 (X_U7.3)     .0011 (X_U8.1)    3.6998 (X_U8.2)     .0011     
+
+(X_U8.3)    3.7000 (X_U9.1)     .0238 (X_U9.2)    3.6993 (X_U9.3)    3.6986     
+
+(N011101)    3.6982                   (X_U10.1)    3.6988                       
+
+(X_U10.2)     .0011                   (X_U10.3)    3.6986                       
+
+(X_U7.12)    3.6765                   (X_U7.13)     .0012                       
+
+(X_U7.14)     .0011                   (X_U7.15)    3.6764                       
+
+(X_U8.12)     .0014                   (X_U8.13)     .2714                       
+
+(X_U8.14)    3.7000                   (X_U8.15)    3.4299                       
+
+(X_U9.12)    7.3740                   (X_U9.13)    3.6987                       
+
+(X_U9.14)    3.6986                   (X_U9.15)    7.3739                       
+
+(N0994712) 16.50E-12                  (X_U10.12) 869.2E-06                      
+
+(X_U10.13)     .2709                  (X_U10.14)    3.6986                      
+
+(X_U10.15)    3.4285                  (X_U12.B1)    1.0000                      
+
+(X_U6.VIN)    3.6982                  (X_U11.MAX)    1.8128                     
+
+(X_U11.OVP)    0.0000                 (X_U11.PFM)    1.0000                     
+
+(X_U11.VEA)     .0057                 (X_U12.IVP)    0.0000                     
+
+(X_U12.OVP)    0.0000                 (X_U12.PWM)    0.0000                     
+
+(X_U12.ZCD)    0.0000                 (X_U6.VOUT)    1.8128                     
+
+(X_U11.SDWN)    0.0000                (X_U11.VREF) 69.41E-06                    
+
+(X_U12.BUCK)    0.0000                (X_U12.COMP)    1.0823                    
+
+(X_U12.FPWM)    0.0000                (X_U12.SDWN)    0.0000                    
+
+(TPS61023_FB) 106.5E-06               (X_U12.BOOST)    0.0000                   
+
+(X_U12.EN_OK)    0.0000               (X_U6.U2_IDT) 1.550E-06                   
+
+(X_U6.U2_IRT) 950.0E-09               (X_U11.FB_INT) 76.76E-06                  
+
+(X_U11.ISENSE) 143.1E-09              (X_U11.N02524)    0.0000                  
+
+(X_U11.N02652)    1.0000              (X_U11.N02676)    2.4128                  
+
+(X_U11.N02682)    1.7784              (X_U11.N02802)    1.7784                  
+
+(X_U11.N03284)    1.0000              (X_U11.N03428)    1.6128                  
+
+(X_U11.N03512)    1.0000              (X_U11.N03590)    1.0000                  
+
+(X_U11.N03668)     .0020              (X_U11.N03750)    -.3429                  
+
+(X_U11.N03792)    1.7784              (X_U11.N03994)    1.7784                  
+
+(X_U11.N04164)     .3441              (X_U11.N04226)    1.0706                  
+
+(X_U11.N04404)    5.0000              (X_U11.N04714) 303.6E-06                  
+
+(X_U11.N18081) 76.76E-06              (X_U12.ISENSE)    0.0000                  
+
+(X_U12.SDWN_B)    1.0000              (X_U12.TONMAX)    0.0000                  
+
+(X_U12.VIN_OK)    1.0000              (X_U6.U2_IDTB) 3.613E-06                  
+
+(X_U6.U2_IRTB) 2.324E-06              (X_U12.BB_MODE)    0.0000                 
+
+(X_U12.IVP_ACT)    0.0000             (X_U12.PWM_INT)    0.0000                 
+
+(X_U12.U_EA_SS) 1.201E-12             (V_LOAD_SHARING)    3.6986                
+
+(X_U11.ISEN_LDO)     .0049            (X_U11.SKIP_PFM)    0.0000                
+
+(X_U11.VOUT_INT)     .0010            (X_U11.VOUT_SEN)     .1800                
+
+(X_U11.X_U3.TON)-17.85E-06            (X_U11.X_U616.1)    1.0000                
+
+(X_U12.BB_HDRV1)    1.0000            (X_U12.BB_HDRV2)    0.0000                
+
+(X_U12.BB_LDRV1)    0.0000            (X_U12.BB_LDRV2)    1.0000                
+
+(X_U12.NO_FAULT)    0.0000            (X_U12.PFM_MODE)    1.0000                
+
+(X_U12.U_GMI_XX)    0.0000            (X_U6.N16775939)    1.0000                
+
+(X_U6.N16776794)    1.0000            (X_U6.U1_N00239)     .9000                
+
+(X_U6.U1_N00271)     .3000            (X_U6.U1_VB_2P5) 60.00E-06                
+
+(X_U6.U1_VB_5P5) 58.00E-06            (X_U6.U2_VBIAS1)    -.0048                
+
+(X_U6.U2_VBIAS2)-960.0E-06            (X_U6.X_U1_U1.1)    1.0000                
+
+(X_U11.GATE_NMOS)    0.0000           (X_U11.GATE_PMOS)    0.0000               
+
+(X_U11.PRECHARGE)    1.0000           (X_U11.X_U2.HDRV)    0.0000               
+
+(X_U11.X_U2.LDRV)    0.0000           (X_U11.X_U2.OVPN)    1.0000               
+
+(X_U11.X_U9.FPWM)    0.0000           (X_U11.X_U9.SKIP)    0.0000               
+
+(X_U12.BB_MODE_B)    1.0000           (X_U12.BB_REGION)    0.0000               
+
+(X_U12.IND_SENSE) 12.46E-09           (X_U12.MODE_HIGH)    0.0000               
+
+(X_U12.N16829483)    1.0000           (X_U12.N16907366)    1.0000               
+
+(X_U12.N16907473)    1.0000           (X_U12.N16907607)    1.0000               
+
+(X_U12.N16907623)    1.0000           (X_U12.N16910115)    1.0000               
+
+(X_U12.N16910144)    1.0000           (X_U12.N16910398)    1.0000               
+
+(X_U12.N16910468)    1.0000           (X_U12.N16910561)    1.0000               
+
+(X_U12.N16910663)    1.0000           (X_U12.N16910725)    1.0000               
+
+(X_U12.N16910850)    1.0000           (X_U12.N16910853)    0.0000               
+
+(X_U12.N16941786)    1.0000           (X_U12.N16942405)    1.0000               
+
+(X_U12.N17648959)    1.0000           (X_U12.N17677210)    0.0000               
+
+(X_U12.N18432614)    1.0000           (X_U12.N18787013)    1.0000               
+
+(X_U12.PRE_HDRV1)    0.0000           (X_U12.PRE_HDRV2)    1.0000               
+
+(X_U12.PRE_LDRV1)    1.0000           (X_U12.PRE_LDRV2)    0.0000               
+
+(X_U12.PWM_RESET)    0.0000           (X_U12.PWM_START)    0.0000               
+
+(X_U12.SKIPPAUSE)    1.0000           (X_U12.U_EA_VREF) 1.201E-12               
+
+(X_U12.X_U1.YINT)    0.0000           (X_U12.X_U2.YINT)    1.0000               
+
+(X_U6.ON_INT_PRE)    1.0000           (X_U6.U1_N427858)    1.0000               
+
+(X_U6.U1_N427908)    1.0000           (X_U6.U1_N427944)    1.0000               
+
+(X_U6.U1_N427964)    0.0000           (X_U11.SKIP_PFM_N)    1.0000              
+
+(X_U11.X_U10.YINT)    1.0000          (X_U11.X_U11.YINT)    1.0000              
+
+(X_U11.X_U3.RESET)    1.0000          (X_U11.X_U4.SS_TR) 76.76E-06              
+
+(X_U11.X_U5.EN_OK)    1.0000          (X_U12.U_EA_SSEND)    0.0000              
+
+(X_U12.U_GMI_ISWF)   -2.0000          (X_U12.U_PG_PG_FB)    0.0000              
+
+(X_U6.X_U2_U9.106)    0.0000          (X_U6.X_U2_U9.301) 181.3E-09              
+
+(V_LOAD_SWITCH_OUT)    1.8128         (X_U11.X_U3.SKIP_N)    1.0000             
+
+(X_U11.X_U5.EN_INT)    1.0000         (X_U11.X_U5.SDWN_N)    1.0000             
+
+(X_U11.X_U5.VIN_OK)    1.0000         (X_U11.X_U616.INM1)   -1.6126             
+
+(X_U11.X_U616.INP1)    0.0000         (X_U11.X_U616.INP2)     .0020             
+
+(X_U12.BOOST_ENTRY)    0.0000         (X_U12.DISCH1_SOME)    0.0000             
+
+(X_U12.DISCH2_SOME)    0.0000         (X_U12.DISCH3_SOME)    0.0000             
+
+(X_U12.PWM_TRIGGER)    0.0000         (X_U12.U_EA_N00231)     .6000             
+
+(X_U12.U_EA_N04642)    1.0823         (X_U12.U_EA_N05897)    1.1750             
+
+(X_U12.U_EA_N43040)    1.1200         (X_U12.U_EA_N76861)    1.1950             
+
+(X_U12.U_EA_N76869)     .0200         (X_U12.U_EA_N76909)    0.0000             
+
+(X_U12.U_GMI_BLNCK)    0.0000         (X_U12.U_GMI_ICTRL)     .3609             
+
+(X_U12.U_PG_N00172)    5.7000         (X_U12.U_PG_N00464)     .4750             
+
+(X_U12.U_PG_N00552)     .0250         (X_U12.X_U_EA_U3.1)    0.0000             
+
+(X_U12.X_U_PG_U2.1)    0.0000         (X_U12.X_U_PG_U3.1)    0.0000             
+
+(X_U12.X_U_PG_U6.1)    0.0000         (X_U6.U1_N14507001)    2.0000             
+
+(X_U6.U2_N14500641)    3.6982         (X_U6.U2_N14501700) 44.50E-06             
+
+(X_U6.U2_N16479819)  245.4600         (X_U6.U2_N16484817)-960.0E-06             
+
+(X_U6.X_U1_U1.INM1)   -2.7982         (X_U6.X_U1_U1.INP1)    0.0000             
+
+(X_U6.X_U1_U1.INP2)     .3000         (X_U6.X_U2_U10.106)    3.6982             
+
+(X_U6.X_U2_U10.301)     .0336         (X_U11.PASS_THROUGH)    0.0000            
+
+(X_U11.PRECHARGE_ON)    1.0000        (X_U11.X_U3.TON_EXP)    1.0000            
+
+(X_U11.X_U5.VOUT_OK)    0.0000        (X_U12.BB_EXIT_BUCK)    0.0000            
+
+(X_U12.PG_LOGIC_OUT)    0.0000        (X_U12.U_EA_BANDGAP)     .5000            
+
+(X_U12.U_EA_N114925)    1.0000        (X_U12.VI_GR_VO_NEW)    1.0000            
+
+(X_U12.VO_GR_VI_NEW)    0.0000        (X_U6.X_U1_U43.YINT)    1.0000            
+
+(X_U6.X_U1_U44.YINT)    1.0000        (X_U6.X_U1_U46.YINT)    0.0000            
+
+(X_U11.X_U3.ISEN_INT)    0.0000       (X_U11.X_U3.X_U615.1)    1.0000           
+
+(X_U11.X_U5.X_U615.1)    1.0000       (X_U11.X_U5.X_U616.1)    1.0000           
+
+(X_U11.X_U5.X_U617.1)    0.0000       (X_U11.X_U6.X_U615.1)    0.0000           
+
+(X_U11.X_U6.X_U616.1)    1.0000       (X_U11.X_U6.X_U618.1)    1.0000           
+
+(X_U11.X_U7.X_U616.1)    0.0000       (X_U11.X_U9.X_U616.1)    0.0000           
+
+(X_U11.X_U9.X_U618.1)    1.0000       (X_U11.X_U9.X_U619.1)    1.0000           
+
+(X_U12.BB_EXIT_BOOST)    0.0000       (X_U12.BB_REGION_NEW)    0.0000           
+
+(X_U12.SKIPPAUSE_BAR)    0.0000       (X_U12.TIMER_EXPIRES)    0.0000           
+
+(X_U12.U_EA_VREF_INT) 1.201E-12       (X_U12.U_Mode_N02181)    1.7000           
+
+(X_U12.U_Mode_N02189)     .4500       (X_U12.U_Mode_N04389)    1.1000           
+
+(X_U12.U_Mode_N04397)     .1000       (X_U12.U_Mode_N04678)    1.2000           
+
+(X_U12.U_Mode_N04686)     .4000       (X_U12.U_OFFtimer_QA)    0.0000           
+
+(X_U12.U_OFFtimer_QB)    0.0000       (X_U12.X_U_Mode_U1.1)    0.0000           
+
+(X_U12.X_U_Mode_U2.1)    1.0000       (X_U12.X_U_Mode_U3.1)    0.0000           
+
+(X_U6.U2_VGATE_CLAMP)   10.0980       (X_U11.X_U1.N16782062)     .0056          
+
+(X_U11.X_U1.N16784843)     .0150      (X_U11.X_U1.N16786290)     .2950          
+
+(X_U11.X_U1.N16788044)     .0011      (X_U11.X_U2.N16776358)    1.0000          
+
+(X_U11.X_U2.N16776364)    0.0000      (X_U11.X_U2.N16776520)    1.0000          
+
+(X_U11.X_U2.N16776526)    0.0000      (X_U11.X_U2.N16781894)    1.0000          
+
+(X_U11.X_U2.N16782385)    0.0000      (X_U11.X_U2.N16782723)    1.0000          
+
+(X_U11.X_U2.N16793571)    0.0000      (X_U11.X_U2.N16794319)    0.0000          
+
+(X_U11.X_U2.N16794600)    1.0000      (X_U11.X_U2.N16802886)    0.0000          
+
+(X_U11.X_U3.BLNK_TIME)    0.0000      (X_U11.X_U3.N16760203)    -.0179          
+
+(X_U11.X_U3.N16760209)    2.0000      (X_U11.X_U3.N16760219) 80.02E-15          
+
+(X_U11.X_U3.N16760623)    1.0000      (X_U11.X_U3.N16788226)    0.0000          
+
+(X_U11.X_U3.N16788246)    0.0000      (X_U11.X_U3.N16794413)    1.0000          
+
+(X_U11.X_U3.N16798891)    1.0000      (X_U11.X_U3.N16799638)    0.0000          
+
+(X_U11.X_U3.N16805500)    0.0000      (X_U11.X_U3.N16833195)    0.0000          
+
+(X_U11.X_U3.N16834033)    1.0000      (X_U11.X_U3.N16851858)    1.0000          
+
+(X_U11.X_U3.N16852133)    0.0000      (X_U11.X_U3.RESET_INT)    1.0000          
+
+(X_U11.X_U3.X_U22.my5)    1.0000      (X_U11.X_U3.X_U22.qbr)    1.0000          
+
+(X_U11.X_U3.X_U22.qqq)    -.0344      (X_U11.X_U3.X_U630.ch)    1.0000          
+
+(X_U11.X_U4.N16715897)    1.0000      (X_U11.X_U4.N16715923)    1.0000          
+
+(X_U11.X_U4.N16734545) 76.76E-06      (X_U11.X_U5.N16760737)    1.2000          
+
+(X_U11.X_U5.N16760758)     .7800      (X_U11.X_U5.N16761003)    1.7900          
+
+(X_U11.X_U5.N16761019)     .0020      (X_U11.X_U5.N16761451)    2.1900          
+
+(X_U11.X_U5.N16761467)     .0100      (X_U11.X_U5.N16764381)    1.0000          
+
+(X_U11.X_U6.N16760966)     .0100      (X_U11.X_U6.N16761083)    0.0000          
+
+(X_U11.X_U6.N16761379)    1.0000      (X_U11.X_U6.N16762471)    1.0000          
+
+(X_U11.X_U6.N16762684) 50.00E-06      (X_U11.X_U6.N16763662)    1.0000          
+
+(X_U11.X_U6.N16771362)     .0100      (X_U11.X_U6.N16774814)    0.0000          
+
+(X_U11.X_U6.N16775115)    0.0000      (X_U11.X_U6.N16776473)     .6060          
+
+(X_U11.X_U6.N16777030)     .5820      (X_U11.X_U6.X_U22.my5)    1.0000          
+
+(X_U11.X_U6.X_U22.qbr)    1.0000      (X_U11.X_U6.X_U22.qqq)    -.0344          
+
+(X_U11.X_U7.N16761502)     .1000      (X_U11.X_U7.N16761602)    5.7000          
+
+(X_U11.X_U9.N16761158)    1.2000      (X_U11.X_U9.N16761170)     .8000          
+
+(X_U11.X_U9.N16761926) 20.11E-06      (X_U11.X_U9.N16761940) 70.11E-06          
+
+(X_U11.X_U9.N16763091) 50.00E-06      (X_U11.X_U9.N16763641)     .0200          
+
+(X_U11.X_U9.N16763659)     .0020      (X_U11.X_U9.N16764440)    1.0000          
+
+(X_U11.X_U9.N16769550)    1.0000      (X_U11.X_U9.N16786337)    1.0000          
+
+(X_U11.X_U9.N16788254)    0.0000      (X_U12.BB_ENTRY_BOOST)    0.0000          
+
+(X_U12.OVP_VOUT_DISCH)    0.0000      (X_U12.U_Driver_HDRV1)    0.0000          
+
+(X_U12.U_Driver_HDRV2)    0.0000      (X_U12.U_Driver_LDRV1)    0.0000          
+
+(X_U12.U_Driver_LDRV2)    0.0000      (X_U12.U_EA_N16768276)    0.0000          
+
+(X_U12.U_EA_N16768288)     .9064      (X_U12.U_EA_N16768328)     .0750          
+
+(X_U12.U_EA_VREF_FEED) 15.63E-06      (X_U12.U_GMI_CL_LIMIT)    4.5000          
+
+(X_U12.U_OFFtimer_VDC)    5.8000      (X_U12.U_PG_N16765851)     .1500          
+
+(X_U12.U_PG_N16768007)    5.7000      (X_U12.U_PG_N16768069)     .1500          
+
+(X_U12.U_PG_N16773421)    1.0000      (X_U12.U_PG_N16813847)    1.0000          
+
+(X_U12.U_PG_N16815252)    1.0000      (X_U12.VIN_GR_VO_BUCK)    1.0000          
+
+(X_U12.VO_GR_VI_BOOST)    0.0000      (X_U12.X_U_EA_U1.YINT)    0.0000          
+
+(X_U12.X_U_EA_U3.INM1)     .1127      (X_U12.X_U_EA_U3.INP1)    0.0000          
+
+(X_U12.X_U_EA_U3.INP2)    0.0000      (X_U12.X_U_EA_U4.YINT)    1.0000          
+
+(X_U12.X_U_EA_U5.YINT)    1.0000      (X_U12.X_U_EA_U6.YINT)    1.0000          
+
+(X_U12.X_U_EA_U9.YINT)    0.0000      (X_U12.X_U_GMI_U2.my5)    1.0000          
+
+(X_U12.X_U_GMI_U2.qbr)    1.0000      (X_U12.X_U_GMI_U2.qqq) 9.045E-06          
+
+(X_U12.X_U_PG_U2.INM1)     .4750      (X_U12.X_U_PG_U2.INP1)    0.0000          
+
+(X_U12.X_U_PG_U2.INP2)    0.0000      (X_U12.X_U_PG_U3.INM1)    5.7000          
+
+(X_U12.X_U_PG_U3.INP1)    0.0000      (X_U12.X_U_PG_U3.INP2)    0.0000          
+
+(X_U12.X_U_PG_U6.INM1)    3.8872      (X_U12.X_U_PG_U6.INP1)    0.0000          
+
+(X_U12.X_U_PG_U6.INP2)    0.0000      (X_U12.X_U_PG_U9.YINT)    1.0000          
+
+(V_LOAD_SHARING_FILTED)    3.6982     (X_U11.X_U3.N167609210)     .0020         
+
+(X_U11.X_U3.X_U22.qint)    -.0344     (X_U11.X_U6.X_U22.qint)    -.0344         
+
+(X_U12.U_Driver_N00199)    1.8128     (X_U12.U_Driver_N00214)     .2855         
+
+(X_U12.U_GMI_N16771084)    0.0000     (X_U12.U_GMI_N16771134)    0.0000         
+
+(X_U12.U_GMI_N16771188)    1.0000     (X_U12.U_GMI_N16850824)    0.0000         
+
+(X_U12.U_GMI_N16949901)    0.0000     (X_U12.U_GMI_N16985147)    0.0000         
+
+(X_U12.U_OFFtimer_1VDC)    1.0000     (X_U12.U_OFFtimer_BOON)    1.0000         
+
+(X_U12.U_OFFtimer_BUOF)    0.0000     (X_U12.U_OFFtimer_ZCDB)    1.0000         
+
+(X_U12.X_U_EA_U8.YINT1)    1.0000     (X_U12.X_U_EA_U8.YINT2)    1.0000         
+
+(X_U12.X_U_EA_U8.YINT3)    1.0000     (X_U12.X_U_GMI_U1.Yint)    0.0000         
+
+(X_U12.X_U_GMI_U2.qint) 9.045E-06     (X_U12.X_U_GMI_U3.Yint)    0.0000         
+
+(X_U12.X_U_GMI_U831.ch)    0.0000     (X_U12.X_U_PG_U10.YINT)    1.0000         
+
+(X_U12.X_U_PG_U11.YINT)    0.0000     (X_U12.X_U_PG_U13.YINT)    1.0000         
+
+(X_U12.X_U_PG_U14.inp1)    1.0000     (X_U12.X_U_PG_U14.yin1)    1.0000         
+
+(X_U12.X_U_PG_U14.yin2)    1.0000     (X_U12.X_U_PG_U14.yin3)    1.0000         
+
+(X_U12.X_U_PG_U14.yin4)    1.0000     (X_U11.X_U2.X_U616.YINT)    1.0000        
+
+(X_U11.X_U2.X_U619.YINT)    1.0000    (X_U11.X_U2.X_U620.YINT)    0.0000        
+
+(X_U11.X_U2.X_U622.YINT)    1.0000    (X_U11.X_U2.X_U624.YINT)    1.0000        
+
+(X_U11.X_U2.X_U625.YINT)    0.0000    (X_U11.X_U2.X_U626.YINT)    0.0000        
+
+(X_U11.X_U2.X_U627.YINT)    1.0000    (X_U11.X_U2.X_U628.YINT)    0.0000        
+
+(X_U11.X_U2.X_U629.YINT)    0.0000    (X_U11.X_U2.X_U630.YINT)    1.0000        
+
+(X_U11.X_U2.X_U631.YINT)    0.0000    (X_U11.X_U2.X_U633.YINT)    0.0000        
+
+(X_U11.X_U2.X_U634.YINT)    0.0000    (X_U11.X_U3.X_U22.myvss)    0.0000        
+
+(X_U11.X_U3.X_U615.INM1)    -.0057    (X_U11.X_U3.X_U615.INP1)    0.0000        
+
+(X_U11.X_U3.X_U615.INP2)     .0020    (X_U11.X_U3.X_U619.YINT)    1.0000        
+
+(X_U11.X_U3.X_U620.YINT)    1.0000    (X_U11.X_U3.X_U622.YINT)    0.0000        
+
+(X_U11.X_U3.X_U623.YINT)    1.0000    (X_U11.X_U3.X_U624.YINT)    0.0000        
+
+(X_U11.X_U3.X_U625.YINT)    0.0000    (X_U11.X_U3.X_U626.YINT)    0.0000        
+
+(X_U11.X_U3.X_U628.YINT)    1.0000    (X_U11.X_U3.X_U629.Yint)    1.0000        
+
+(X_U11.X_U3.X_U630.meas)    1.0000    (X_U11.X_U3.X_U631.YINT)    1.0000        
+
+(X_U11.X_U4.X_U831.YINT)    1.0000    (X_U11.X_U5.X_U615.INM1)    -.6128        
+
+(X_U11.X_U5.X_U615.INP1)    0.0000    (X_U11.X_U5.X_U615.INP2)     .7800        
+
+(X_U11.X_U5.X_U616.INM1)    -.0228    (X_U11.X_U5.X_U616.INP1)    0.0000        
+
+(X_U11.X_U5.X_U616.INP2)     .0020    (X_U11.X_U5.X_U617.INM1)    2.1898        
+
+(X_U11.X_U5.X_U617.INP1)    0.0000    (X_U11.X_U5.X_U617.INP2)    0.0000        
+
+(X_U11.X_U5.X_U618.YINT)    1.0000    (X_U11.X_U5.X_U619.YINT)    0.0000        
+
+(X_U11.X_U5.X_U620.YINT)    1.0000    (X_U11.X_U6.X_U22.myvss)    0.0000        
+
+(X_U11.X_U6.X_U615.INM1)     .6059    (X_U11.X_U6.X_U615.INP1)    0.0000        
+
+(X_U11.X_U6.X_U615.INP2)    0.0000    (X_U11.X_U6.X_U616.INM1)   -1.8126        
+
+(X_U11.X_U6.X_U616.INP1)    0.0000    (X_U11.X_U6.X_U616.INP2)     .0100        
+
+(X_U11.X_U6.X_U617.YINT)    0.0000    (X_U11.X_U6.X_U618.INM1)    -.5819        
+
+(X_U11.X_U6.X_U618.INP1)    0.0000    (X_U11.X_U6.X_U618.INP2) 50.00E-06        
+
+(X_U11.X_U6.X_U619.YINT)    0.0000    (X_U11.X_U6.X_U622.YINT)    0.0000        
+
+(X_U11.X_U7.X_U616.INM1)    5.6998    (X_U11.X_U7.X_U616.INP1)    0.0000        
+
+(X_U11.X_U7.X_U616.INP2)    0.0000    (X_U11.X_U9.X_U616.INM1)    1.2000        
+
+(X_U11.X_U9.X_U616.INP1)    0.0000    (X_U11.X_U9.X_U616.INP2)    0.0000        
+
+(X_U11.X_U9.X_U617.YINT)    1.0000    (X_U11.X_U9.X_U618.INM1) 50.00E-06        
+
+(X_U11.X_U9.X_U618.INP1)    0.0000    (X_U11.X_U9.X_U618.INP2) 50.00E-06        
+
+(X_U11.X_U9.X_U619.INM1)    -.0143    (X_U11.X_U9.X_U619.INP1)    0.0000        
+
+(X_U11.X_U9.X_U619.INP2)     .0020    (X_U11.X_U9.X_U623.YINT)    0.0000        
+
+(X_U11.X_U9.X_U624.inp1)    1.0000    (X_U11.X_U9.X_U624.yin1)     .2037        
+
+(X_U11.X_U9.X_U624.yin2)    0.0000    (X_U11.X_U9.X_U624.yin3)    0.0000        
+
+(X_U11.X_U9.X_U624.yin4)    0.0000    (X_U11.X_U9.X_U626.YINT)    1.0000        
+
+(X_U11.X_U9.X_U627.YINT)    1.0000    (X_U11.X_U9.X_U628.YINT)    0.0000        
+
+(X_U12.U_Driver_PWM_BAR)    1.0000    (X_U12.U_GMI_BUCK_RESET)    0.0000        
+
+(X_U12.U_Mode_N16786866)    0.0000    (X_U12.U_OFFtimer_BOCOM)    0.0000        
+
+(X_U12.U_OFFtimer_BUCOM)    0.0000    (X_U12.U_OFFtimer_TSBY2) 2.200E-06        
+
+(X_U12.U_OFFtimer_TSBY5) 200.0E-09    (X_U12.U_PG_PGBAR_DELAY)    1.0000        
+
+(X_U12.X_U_GMI_U2.myvss)    0.0000    (X_U12.X_U_Mode_U1.INM1)    1.2000        
+
+(X_U12.X_U_Mode_U1.INP1)    0.0000    (X_U12.X_U_Mode_U1.INP2)    0.0000        
+
+(X_U12.X_U_Mode_U2.INM1)    -.1128    (X_U12.X_U_Mode_U2.INP1)    0.0000        
+
+(X_U12.X_U_Mode_U2.INP2)     .4500    (X_U12.X_U_Mode_U3.INM1)     .6717        
+
+(X_U12.X_U_Mode_U3.INP1)    0.0000    (X_U12.X_U_Mode_U3.INP2)    0.0000        
+
+(X_U11.X_U3.X_U10.N00363)   -1.8126   (X_U11.X_U3.X_U10.N00593)     .9975       
+
+(X_U11.X_U3.X_U10.N00775)     .9994   (X_U11.X_U3.X_U10.N01724)     .0027       
+
+(X_U11.X_U3.X_U10.N01998)-17.88E-06   (X_U11.X_U3.X_U10.N03521)-17.85E-06       
+
+(X_U11.X_U3.X_U10.VOUT_P)     .1002   (X_U11.X_U3.X_U621.YINT1)    0.0000       
+
+(X_U11.X_U3.X_U621.YINT2)    0.0000   (X_U11.X_U3.X_U621.YINT3)    1.0000       
+
+(X_U11.X_U3.X_U630.reset)    0.0000   (X_U12.INDUCTOR_COMP_OUT)    0.0000       
+
+(X_U12.U_Driver_HDRV1_OK)    0.0000   (X_U12.U_Driver_HDRV2_OK)    1.0000       
+
+(X_U12.U_Driver_LDRV1_OK)    0.0000   (X_U12.U_Driver_LDRV2_OK)    0.0000       
+
+(X_U12.U_OFFtimer_BB_RST)    1.0000   (X_U12.U_OFFtimer_BUCK_B)    1.0000       
+
+(X_U12.U_OFFtimer_QA_BAR)    1.0000   (X_U12.U_OFFtimer_QB_BAR)    1.0000       
+
+(X_U12.U_OFFtimer_TONBY2) 227.7E-09   (X_U12.U_OFFtimer_TONBY3) 313.8E-09       
+
+(X_U12.U_OFFtimer_TONBY4) 200.0E-09   (X_U12.U_OFFtimer_TONBY6) 201.0E-09       
+
+(X_U12.X_U_BBMode_U847.1)    1.0000   (X_U12.X_U_BBMode_U848.1)    0.0000       
+
+(X_U12.X_U_BBMode_U849.1)    1.0000   (X_U12.X_U_BBMode_U850.1)    0.0000       
+
+(X_U12.X_U_GMI_U702.YINT)    0.0000   (X_U12.X_U_GMI_U825.YINT)    0.0000       
+
+(X_U12.X_U_GMI_U831.meas)    0.0000   (X_U12.X_U_GMI_U833.YINT)    0.0000       
+
+(X_U12.X_U_GMI_U840.YINT)    0.0000   (X_U12.X_U_GMI_U841.YINT)    0.0000       
+
+(X_U12.X_U_GMI_U842.YINT)    0.0000   (X_U11.X_U3.X_U22.x3.YINT)    0.0000      
+
+(X_U11.X_U3.X_U630.reset2)    0.0000  (X_U11.X_U6.X_U22.x3.YINT)    0.0000      
+
+(X_U12.PWM_RESET_20N_SHOT)    0.0000  (X_U12.U_BBMode_N16941782)    0.0000      
+
+(X_U12.U_BBMode_N16941801)    0.0000  (X_U12.U_BBMode_N16942067)    0.0000      
+
+(X_U12.U_BBMode_N16942156)    0.0000  (X_U12.U_BBMode_N16943295)    0.0000      
+
+(X_U12.U_BBMode_N16943742)    0.0000  (X_U12.U_BBMode_N16952584)    1.0000      
+
+(X_U12.U_BBMode_N16962277)    -.3700  (X_U12.U_BBMode_N16962322)    1.4428      
+
+(X_U12.U_BBMode_N16962369)     .0500  (X_U12.U_BBMode_N16962427)     .0500      
+
+(X_U12.U_BBMode_N17026774)     .0100  (X_U12.U_BBMode_N17026781)    1.8028      
+
+(X_U12.U_BBMode_N17026834)     .0100  (X_U12.U_BBMode_N17026837)    -.0100      
+
+(X_U12.U_BBMode_SDWN_SHOT)    0.0000  (X_U12.U_Driver_N16773559)    1.0000      
+
+(X_U12.U_Driver_N16776390)    1.0000  (X_U12.U_Driver_N16778144)    0.0000      
+
+(X_U12.U_Driver_N16778240)    1.0000  (X_U12.U_Driver_N16807058)    1.0000      
+
+(X_U12.U_Driver_N16815558)    0.0000  (X_U12.U_Driver_N16840731)    0.0000      
+
+(X_U12.U_Driver_N16851579)    1.0000  (X_U12.U_Driver_N16851759)    0.0000      
+
+(X_U12.U_Driver_N16859689)    0.0000  (X_U12.U_Driver_N16864262)    0.0000      
+
+(X_U12.U_Driver_N16864914)    0.0000  (X_U12.U_Driver_N16901036)    1.2000      
+
+(X_U12.U_Driver_N17066231)    1.0000  (X_U12.U_Driver_N17169433)    1.0000      
+
+(X_U12.U_Driver_N17177973)    0.0000  (X_U12.U_Driver_N17235621)    1.0000      
+
+(X_U12.U_Driver_N17361947)    1.0000  (X_U12.U_Driver_N17394895)    0.0000      
+
+(X_U12.U_Driver_N17401465)    0.0000  (X_U12.U_Driver_N17530440)    0.0000      
+
+(X_U12.U_Driver_VOUT_1_2V)    0.0000  (X_U12.U_EA_SKIPPAUSE_PRE)    1.0000      
+
+(X_U12.U_OFFtimer_PWM_BAR)    1.0000  (X_U12.U_OFFtimer_ZCD_PFM)    0.0000      
+
+(X_U12.X_U_BBMode_U833.ch)    0.0000  (X_U12.X_U_GMI_U2.x3.YINT)    0.0000      
+
+(X_U12.X_U_GMI_U824.YINT1)    0.0000  (X_U12.X_U_GMI_U824.YINT2)    0.0000      
+
+(X_U12.X_U_GMI_U824.YINT3)    1.0000  (X_U12.X_U_GMI_U831.reset)    1.0000      
+
+(X_U12.X_U_Mode_U838.YINT)    0.0000  (X_U12.X_U_Mode_U841.inp1)    0.0000      
+
+(X_U12.X_U_Mode_U841.yin1)    0.0000  (X_U12.X_U_Mode_U841.yin2)    0.0000      
+
+(X_U12.X_U_Mode_U841.yin3)    0.0000  (X_U12.X_U_Mode_U841.yin4)    0.0000      
+
+(X_U12.U_OFFtimer_BLOCK_ON)    0.0000 (X_U12.U_OFFtimer_BOON_BAR)    0.0000     
+
+(X_U12.X_U_BBMode_U663.my5)    1.0000 (X_U12.X_U_BBMode_U663.qbr)    1.0000     
+
+(X_U12.X_U_BBMode_U663.qqq) 9.045E-06 (X_U12.X_U_BBMode_U664.my5)    1.0000     
+
+(X_U12.X_U_BBMode_U664.qbr)    1.0000 (X_U12.X_U_BBMode_U664.qqq) 9.045E-06     
+
+(X_U12.X_U_BBMode_U665.my5)    1.0000 (X_U12.X_U_BBMode_U665.qbr)    1.0000     
+
+(X_U12.X_U_BBMode_U665.qqq)    -.0344 (X_U12.X_U_Driver_U11.YINT)    1.0000     
+
+(X_U12.X_U_Driver_U12.YINT)    1.0000 (X_U12.X_U_Driver_U13.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U14.YINT)    1.0000 (X_U12.X_U_Driver_U19.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U20.YINT)    0.0000 (X_U12.X_U_Driver_U21.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U24.YINT)    1.0000 (X_U12.X_U_Driver_U25.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U26.YINT)    0.0000 (X_U12.X_U_Driver_U27.YINT)    1.0000     
+
+(X_U12.X_U_Driver_U28.YINT)    0.0000 (X_U12.X_U_Driver_U29.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U3.YINT1)    0.0000 (X_U12.X_U_Driver_U3.YINT2)    0.0000     
+
+(X_U12.X_U_Driver_U3.YINT3)    1.0000 (X_U12.X_U_Driver_U30.YINT)    1.0000     
+
+(X_U12.X_U_Driver_U34.YINT)    0.0000 (X_U12.X_U_Driver_U35.YINT)    0.0000     
+
+(X_U12.X_U_Driver_U5.YINT1)    0.0000 (X_U12.X_U_Driver_U5.YINT2)    0.0000     
+
+(X_U12.X_U_Driver_U5.YINT3)    1.0000 (X_U12.X_U_Driver_U7.YINT1)    0.0000     
+
+(X_U12.X_U_Driver_U7.YINT2)    0.0000 (X_U12.X_U_Driver_U7.YINT3)    1.0000     
+
+(X_U12.X_U_Driver_U9.YINT1)    1.0000 (X_U12.X_U_Driver_U9.YINT2)    1.0000     
+
+(X_U12.X_U_Driver_U9.YINT3)    0.0000 (X_U12.X_U_GMI_U831.reset2)    1.0000     
+
+(X_U12.X_U_OFFtimer_U9.MY5)    1.0000 (X_U12.X_U_OFFtimer_U9.Qbr)    1.0000     
+
+(X_U12.X_U_OFFtimer_U9.Qqq)    -.3435 (X_U12.U_OFFtimer_COM_PHASE)    0.0000    
+
+(X_U12.U_OFFtimer_N16907157)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907178)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907227)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907229)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16907236)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907243)     .2855                                          
+
+(X_U12.U_OFFtimer_N16907277)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16907313)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907329)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907349)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907358)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907383)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16907388)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907399) 71.74E-09                                          
+
+(X_U12.U_OFFtimer_N16907448)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907460)     .3626                                          
+
+(X_U12.U_OFFtimer_N16907504)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907529)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907535)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907604)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16907724)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16907775)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16907967)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16908368)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16908693)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16908795)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16908876)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16908893)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909053)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16909090)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16909108)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909110)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909150)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909153)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909203)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909242)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909355)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16909604)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910034)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910101)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910125)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910211)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910216)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910232)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910235)     .2846                                          
+
+(X_U12.U_OFFtimer_N16910239)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910256)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910355)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910371)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910382)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910385)     .3626                                          
+
+(X_U12.U_OFFtimer_N16910455)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910548) 14.35E-09                                          
+
+(X_U12.U_OFFtimer_N16910625)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910657)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910665)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910771)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910818)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910847)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16910876)    1.0000                                          
+
+(X_U12.U_OFFtimer_N16910889)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16911021)    0.0000                                          
+
+(X_U12.U_OFFtimer_N16922544)     .0022                                          
+
+(X_U12.U_OFFtimer_N16922570)   10.0000                                          
+
+(X_U12.U_OFFtimer_N16997694)    0.0000                                          
+
+(X_U12.U_OFFtimer_N17111743)    1.0000                                          
+
+(X_U12.U_OFFtimer_N17517103)    0.0000                                          
+
+(X_U12.U_OFFtimer_N17748054)    1.0000                                          
+
+(X_U12.U_OFFtimer_N17756284)    1.0000                                          
+
+(X_U12.U_OFFtimer_N17757183)    1.0000                                          
+
+(X_U12.U_OFFtimer_N17779772)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18027008)    1.0000                                          
+
+(X_U12.U_OFFtimer_N18102460)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18125644)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18242113)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18242117)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18400174)    1.0000                                          
+
+(X_U12.U_OFFtimer_N18401083)    1.0000                                          
+
+(X_U12.U_OFFtimer_N18427252)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18741338)    1.0000                                          
+
+(X_U12.U_OFFtimer_N18753455)    5.0000                                          
+
+(X_U12.U_OFFtimer_N18756756)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18769058)    0.0000                                          
+
+(X_U12.U_OFFtimer_N18795888)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19119380)    1.0000                                          
+
+(X_U12.U_OFFtimer_N19165400)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19200499)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19286930)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19290411)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19329286)    1.0000                                          
+
+(X_U12.U_OFFtimer_N19365948)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19372792)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19391435)    1.0000                                          
+
+(X_U12.U_OFFtimer_N19422688)    1.0000                                          
+
+(X_U12.U_OFFtimer_N19549984)    0.0000                                          
+
+(X_U12.U_OFFtimer_N19571072)    0.0000                                          
+
+(X_U12.U_OFFtimer_TOFF_50NS) 10.00E-15                                          
+
+(X_U12.X_U_BBMode_U660.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U661.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U663.qint) 9.045E-06                                          
+
+(X_U12.X_U_BBMode_U664.qint) 9.045E-06                                          
+
+(X_U12.X_U_BBMode_U665.qint)    -.0344                                          
+
+(X_U12.X_U_BBMode_U833.meas)    0.0000                                          
+
+(X_U12.X_U_BBMode_U834.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U835.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U847.INM1)   -1.4428                                          
+
+(X_U12.X_U_BBMode_U847.INP1)    0.0000                                          
+
+(X_U12.X_U_BBMode_U847.INP2)     .0500                                          
+
+(X_U12.X_U_BBMode_U848.INM1)    2.1828                                          
+
+(X_U12.X_U_BBMode_U848.INP1)    0.0000                                          
+
+(X_U12.X_U_BBMode_U848.INP2)    0.0000                                          
+
+(X_U12.X_U_BBMode_U849.INM1)   -1.8028                                          
+
+(X_U12.X_U_BBMode_U849.INP1)    0.0000                                          
+
+(X_U12.X_U_BBMode_U849.INP2)     .0100                                          
+
+(X_U12.X_U_BBMode_U850.INM1)    1.8228                                          
+
+(X_U12.X_U_BBMode_U850.INP1)    0.0000                                          
+
+(X_U12.X_U_BBMode_U850.INP2)    0.0000                                          
+
+(X_U12.X_U_BBMode_U852.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U854.YINT)    0.0000                                          
+
+(X_U12.X_U_BBMode_U855.YINT)    1.0000                                          
+
+(X_U12.X_U_OFFtimer_U12.MY5)    1.0000                                          
+
+(X_U12.X_U_OFFtimer_U12.Qbr)    1.0000                                          
+
+(X_U12.X_U_OFFtimer_U12.Qqq)    -.3435                                          
+
+(X_U12.X_U_OFFtimer_U759.ch)    0.0000                                          
+
+(X_U12.X_U_OFFtimer_U760.ch)    0.0000                                          
+
+(X_U12.X_U_OFFtimer_U761.ch)    0.0000                                          
+
+(X_U12.X_U_OFFtimer_U847.ch)    0.0000                                          
+
+(X_U12.X_U_OFFtimer_U859.ch)    1.0000                                          
+
+(X_U12.X_U_OFFtimer_U9.Qint)    -.3435                                          
+
+(X_U11.X_U6.PASS_THROUGH_INT)    0.0000                                         
+
+(X_U12.X_U_BBMode_U663.myvss)    0.0000                                         
+
+(X_U12.X_U_BBMode_U664.myvss)    0.0000                                         
+
+(X_U12.X_U_BBMode_U665.myvss)    0.0000                                         
+
+(X_U12.X_U_BBMode_U833.reset)    1.0000                                         
+
+(X_U12.X_U_BBMode_U839.YINT1)    0.0000                                         
+
+(X_U12.X_U_BBMode_U839.YINT2)    0.0000                                         
+
+(X_U12.X_U_BBMode_U839.YINT3)    0.0000                                         
+
+(X_U12.X_U_BBMode_U840.YINT1)    0.0000                                         
+
+(X_U12.X_U_BBMode_U840.YINT2)    0.0000                                         
+
+(X_U12.X_U_BBMode_U840.YINT3)    0.0000                                         
+
+(X_U12.X_U_BBMode_U841.YINT1)    0.0000                                         
+
+(X_U12.X_U_BBMode_U841.YINT2)    0.0000                                         
+
+(X_U12.X_U_BBMode_U841.YINT3)    0.0000                                         
+
+(X_U12.X_U_BBMode_U845.YINT1)    0.0000                                         
+
+(X_U12.X_U_BBMode_U845.YINT2)    0.0000                                         
+
+(X_U12.X_U_BBMode_U845.YINT3)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U12.Qint)    -.3435                                         
+
+(X_U12.X_U_OFFtimer_U18.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U19.YINT)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U20.YINT)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U21.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U22.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U23.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U24.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U27.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U28.YINT)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U29.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U31.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U35.YINT)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U36.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U37.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U41.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U42.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U45.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U46.YINT)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U656.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U656.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U656.qqq)    -.0344                                         
+
+(X_U12.X_U_OFFtimer_U657.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U657.qbr)    0.0000                                         
+
+(X_U12.X_U_OFFtimer_U657.qqq)    1.0344                                         
+
+(X_U12.X_U_OFFtimer_U662.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U662.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U662.qqq) 9.045E-06                                         
+
+(X_U12.X_U_OFFtimer_U663.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U663.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U663.qqq)    -.0344                                         
+
+(X_U12.X_U_OFFtimer_U664.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U664.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U664.qqq)    -.0344                                         
+
+(X_U12.X_U_OFFtimer_U666.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U666.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U666.qqq)    -.0344                                         
+
+(X_U12.X_U_OFFtimer_U669.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U669.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U669.qqq) 9.045E-06                                         
+
+(X_U12.X_U_OFFtimer_U673.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U673.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U673.qqq)    -.0344                                         
+
+(X_U12.X_U_OFFtimer_U674.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U674.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U674.qqq) 9.045E-06                                         
+
+(X_U12.X_U_OFFtimer_U678.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U678.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U678.qqq) 9.045E-06                                         
+
+(X_U12.X_U_OFFtimer_U682.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U682.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U682.qqq) 9.045E-06                                         
+
+(X_U12.X_U_OFFtimer_U684.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U684.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U684.qqq) 9.045E-06                                         
+
+(X_U12.X_U_OFFtimer_U687.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U687.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U687.qqq)    -.0344                                         
+
+(X_U12.X_U_OFFtimer_U689.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U689.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U689.qqq) 9.045E-06                                         
+
+(X_U12.X_U_OFFtimer_U691.my5)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U691.qbr)    1.0000                                         
+
+(X_U12.X_U_OFFtimer_U691.qqq) 9.045E-06                                         
+
+(X_U12.X_U_OFFtimer_U9.MYVSS)    0.0000                                         
+
+(X_U12.U_OFFtimer_DISCH4_SOME)    0.0000                                        
+
+(X_U12.U_OFFtimer_DISCH5_SOME)    0.0000                                        
+
+(X_U12.U_OFFtimer_DISCH6_SOME)    0.0000                                        
+
+(X_U12.X_U_BBMode_U833.reset2)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U12.MYVSS)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U30.YINT1)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U30.YINT2)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U30.YINT3)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U40.YINT1)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U40.YINT2)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U40.YINT3)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U43.YINT1)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U43.YINT2)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U43.YINT3)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U652.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U653.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U654.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U655.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U656.qint)    -.0344                                        
+
+(X_U12.X_U_OFFtimer_U657.qint)    1.0344                                        
+
+(X_U12.X_U_OFFtimer_U660.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U661.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U662.qint) 9.045E-06                                        
+
+(X_U12.X_U_OFFtimer_U663.qint)    -.0344                                        
+
+(X_U12.X_U_OFFtimer_U664.qint)    -.0344                                        
+
+(X_U12.X_U_OFFtimer_U665.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U666.qint)    -.0344                                        
+
+(X_U12.X_U_OFFtimer_U668.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U669.qint) 9.045E-06                                        
+
+(X_U12.X_U_OFFtimer_U672.Yint)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U673.qint)    -.0344                                        
+
+(X_U12.X_U_OFFtimer_U674.qint) 9.045E-06                                        
+
+(X_U12.X_U_OFFtimer_U677.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U678.qint) 9.045E-06                                        
+
+(X_U12.X_U_OFFtimer_U681.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U682.qint) 9.045E-06                                        
+
+(X_U12.X_U_OFFtimer_U683.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U684.qint) 9.045E-06                                        
+
+(X_U12.X_U_OFFtimer_U686.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U687.qint)    -.0344                                        
+
+(X_U12.X_U_OFFtimer_U688.Yint)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U689.qint) 9.045E-06                                        
+
+(X_U12.X_U_OFFtimer_U690.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U691.qint) 9.045E-06                                        
+
+(X_U12.X_U_OFFtimer_U692.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U699.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U734.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U735.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U740.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U741.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U742.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U751.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U754.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U759.meas)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U760.meas)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U761.meas)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U762.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U763.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U764.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U765.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U768.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U771.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U772.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U773.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U775.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U779.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U780.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U781.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U833.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U834.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U835.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U836.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U837.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U838.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U845.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U847.meas)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U850.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U851.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U852.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U853.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U854.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U855.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U856.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U857.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U858.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U859.meas)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U861.YINT)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U864.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U865.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U866.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U868.YINT)    0.0000                                        
+
+(X_U12.X_U_OFFtimer_U9.CLKdel)    1.0000                                        
+
+(X_U12.X_U_OFFtimer_U9.CLKint)    0.0000                                        
+
+(X_U12.U_BBMode_TONMAX_DELAYED)    0.0000                                       
+
+(X_U12.U_OFFtimer_PFM_MODE_ACT)    0.0000                                       
+
+(X_U12.X_U_BBMode_U663.x3.YINT)    0.0000                                       
+
+(X_U12.X_U_BBMode_U664.x3.YINT)    0.0000                                       
+
+(X_U12.X_U_BBMode_U665.x3.YINT)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U12.CLKdel)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U12.CLKint)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U651.YINT1)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U651.YINT2)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U651.YINT3)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U656.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U657.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U658.YINT1)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U658.YINT2)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U658.YINT3)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U659.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U659.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U659.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U662.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U663.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U664.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U666.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U667.YINT1)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U667.YINT2)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U667.YINT3)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U669.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U673.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U674.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U675.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U675.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U675.YINT3)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U678.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U682.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U684.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U687.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U689.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U691.myvss)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U693.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U693.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U693.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U694.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U694.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U694.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U737.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U737.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U737.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U759.reset)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U760.reset)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U761.reset)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U847.reset)    1.0000                                       
+
+(X_U12.X_U_OFFtimer_U859.reset)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U862.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U862.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U862.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U863.YINT1)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U863.YINT2)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U863.YINT3)    0.0000                                       
+
+(X_U12.X_U_OFFtimer_U9.X2.YINT)    0.0000                                       
+
+(X_U12.U_OFFtimer_BUCK_50NS_OFF)    0.0000                                      
+
+(X_U12.U_OFFtimer_LATCH_OUT_DEL)    0.0000                                      
+
+(X_U12.U_OFFtimer_PRE_LDRV1_5NS)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U12.X2.YINT)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U759.reset2)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U760.reset2)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U761.reset2)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U777.N00055)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U778.N00055)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U847.reset2)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U859.reset2)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X1.YINT1)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X1.YINT2)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X1.YINT3)    1.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X3.YINT1)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X3.YINT2)    0.0000                                      
+
+(X_U12.X_U_OFFtimer_U9.X3.YINT3)    0.0000                                      
+
+(X_U12.U_OFFtimer_PWM_RESET_SHOT)    0.0000                                     
+
+(X_U12.U_OFFtimer_TIMER_BB_START)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X1.YINT1)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X1.YINT2)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X1.YINT3)    1.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X3.YINT1)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X3.YINT2)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U12.X3.YINT3)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U656.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U657.x3.YINT)    1.0000                                     
+
+(X_U12.X_U_OFFtimer_U662.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U663.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U664.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U666.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U669.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U673.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U674.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U678.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U682.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U684.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U687.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U689.x3.YINT)    0.0000                                     
+
+(X_U12.X_U_OFFtimer_U691.x3.YINT)    0.0000                                     
+
+(X_U12.U_OFFtimer_BOON_TERMINATION)    0.0000                                   
+
+(X_U12.U_OFFtimer_SET_BB_EXIT_BUCK)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603709.Yint)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603728.YINT)    1.0000                                   
+
+(X_U12.X_U_Driver_U1912603729.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603731.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603733.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603734.YINT)    1.0000                                   
+
+(X_U12.X_U_Driver_U1912603735.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603736.YINT)    0.0000                                   
+
+(X_U12.X_U_Driver_U1912603737.YINT)    0.0000                                   
+
+(X_U12.X_U_OFFtimer_U777.N14322195)    0.0000                                   
+
+(X_U12.X_U_OFFtimer_U778.N14322195)    1.0000                                   
+
+(X_U12.U_OFFtimer_BB_EXIT_BUCK_SHOT)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603711.YINT1)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603711.YINT2)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603711.YINT3)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603712.YINT1)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603712.YINT2)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603712.YINT3)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603713.YINT1)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603713.YINT2)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603713.YINT3)    1.0000                                  
+
+(X_U12.X_U_Driver_U1912603714.YINT1)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603714.YINT2)    0.0000                                  
+
+(X_U12.X_U_Driver_U1912603714.YINT3)    0.0000                                  
+
+(X_U12.U_OFFtimer_SET_BB_ENTRY_BOOST)    0.0000                                 
+
+(X_U12.U_OFFtimer_TIMER_EXPIRES_INT1)    0.0000                                 
+
+(X_U12.U_OFFtimer_TIMER_EXPIRES_INT5)    0.0000          
+
+
+**** Interrupt ****

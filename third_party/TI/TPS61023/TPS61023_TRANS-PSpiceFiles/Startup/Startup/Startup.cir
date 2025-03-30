@@ -1,0 +1,19 @@
+** Profile: "Startup-Startup"  [ C:\Users\a0224019\Desktop\PSPICE\PSPICE_TPS61023\Publish\TPS61023_TRANS_PSPICE\tps61023_trans-pspicefiles\startup\startup.sim ] 
+
+** Creating circuit file "Startup.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "C:/Users/a0224019/Desktop/PSPICE/PSPICE_TPS61023/Encrypted lib/TPS61023_TRANS.LIB" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.TRAN  0 1.8m 0 20n 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\Startup.net" 
+
+
+.END

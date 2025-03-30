@@ -1,0 +1,154 @@
+(ExpressProject "hand_pdn_v2"
+  (ProjectVersion "19981106")
+  (SoftwareVersion "22.1 P001 (4063652)  [10/6/2022]-[05/16/24]")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (Allegro Netlist Directory "allegro")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420")
+    (NoModify)
+    (File ".\hand_pdn_v2.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Layout")
+  (Folder "Outputs"
+    (File ".\hand_pdn_v2-pspicefiles\schematic1\schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\hand_pdn_v2-pspicefiles\schematic1\hand_pdn_v2.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\hand_pdn_v2-pspicefiles\schematic1\hand_pdn_v2.sim"
+        (DisplayName "SCHEMATIC1-hand_pdn_v2")
+        (Type "PSpice Profile")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\third_party\ti\tps63805\tps63805_trans.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\third_party\ti\tps63805\tps63805_trans.lib"))
+      (File ".\third_party\ti\tps63806\tps63806_trans.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\third_party\ti\tps63806\tps63806_trans.lib"))
+      (File ".\third_party\ti\tps61023\library\tps61023_trans.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\third_party\ti\tps61023\library\tps61023_trans.lib"))
+      (File ".\third_party\diode inc\dmp2035uvt.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\third_party\diode inc\dmp2035uvt.lib"))
+      (File ".\third_party\ti\tps22965\tps22965_trans.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\third_party\ti\tps22965\tps22965_trans.lib"))
+      (File ".\third_party\murata\ferrite bead\blm18sg700tz1.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\third_party\murata\ferrite bead\blm18sg700tz1.lib"))))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (Folder "Logs")
+  (PartMRUSelector
+    (0
+      (LibraryName "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (L
+      (FullPartName "L.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (TPS63806YFF_TRANS
+      (FullPartName "TPS63806YFF_TRANS.Normal")
+      (LibraryName
+         "C:\DENNIS\DEVELOP\SIMULATION\ORCAD\PROJECT\HAND_PDN_V2\THIRD_PARTY\TI\TPS63806\TPS63806YFF_TRANS.OLB")
+      (DeviceIndex "0"))
+    (DMP2035UVT
+      (FullPartName "DMP2035UVT.Normal")
+      (LibraryName
+         "C:\DENNIS\DEVELOP\SIMULATION\ORCAD\PROJECT\HAND_PDN_V2\THIRD_PARTY\DIODE INC\DMP2035UVT.OLB")
+      (DeviceIndex "0"))
+    (POWER_NMOS_P
+      (FullPartName "POWER_NMOS_P.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\TCLSCRIPTS\CAPPSPICEMODELAPP\POWERMOSFET\HYBRID\SUPPORTFILES\BREAKOUT.OLB")
+      (DeviceIndex "0"))
+    (TPS22965_TRANS
+      (FullPartName "TPS22965_TRANS.Normal")
+      (LibraryName
+         "C:\DENNIS\DEVELOP\SIMULATION\ORCAD\PROJECT\HAND_PDN_V2\THIRD_PARTY\TI\TPS22965\TPS22965_TRANS.OLB")
+      (DeviceIndex "0"))
+    (BLM18SG700TZ1
+      (FullPartName "BLM18SG700TZ1.Normal")
+      (LibraryName
+         "C:\DENNIS\DEVELOP\SIMULATION\ORCAD\PROJECT\HAND_PDN_V2\THIRD_PARTY\MURATA\FERRITE BEAD\BLM18SG700TZ1.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (PARAM
+      (FullPartName "PARAM.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\LIBRARY\PSPICE\SPECIAL.OLB")
+      (DeviceIndex "0"))
+    (VPWL
+      (FullPartName "VPWL.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\LIBRARY\PSPICE\PWL\CDN_PSPICE_PWL.OLB")
+      (DeviceIndex "0"))
+    (VPWL_GENERIC
+      (FullPartName "VPWL_GENERIC.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\TCLSCRIPTS\CAPPSPICESOURCEAPP\HYBRID\SUPPORTFILES\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (GND_POWER
+      (LibraryName "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VDC
+      (FullPartName "VDC.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_22.1\TOOLS\CAPTURE\TCLSCRIPTS\CAPPSPICESOURCEAPP\HYBRID\SUPPORTFILES\SOURCE.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "G:\My Drive\Graduate\Project\Haptic Assistance Navigation Device\PCB Design\Simulation\paper\hand_pdn_v2.dsn")
+      (Path "Design Resources"
+         "G:\My Drive\Graduate\Project\Haptic Assistance Navigation Device\PCB Design\Simulation\paper\hand_pdn_v2.dsn"
+         "SCHEMATIC1")
+      (Path "Design Resources"
+         "G:\My Drive\Graduate\Project\Haptic Assistance Navigation Device\PCB Design\Simulation\paper\hand_pdn_v2.dsn"
+         "Design Cache")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "G:\My Drive\Graduate\Project\Haptic Assistance Navigation Device\PCB Design\Simulation\paper\hand_pdn_v2.dsn"
+         "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 743"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 1674 26 763")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "G:\MY DRIVE\GRADUATE\PROJECT\HAPTIC ASSISTANCE NAVIGATION DEVICE\PCB DESIGN\SIMULATION\PAPER\HAND_PDN_V2.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "liusx")
+  (LastUsedLibraryBrowseDirectory
+     "C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\TI\TPS63806"))

@@ -1,0 +1,53 @@
+(ExpressProject "TPS63805_TRANS"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\tps63805yff_trans.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\tps63805_trans.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE")
+    (RootChangedForceReNetlist "x"))
+  (Folder "Outputs")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\tps63805_trans-pspicefiles\startup\tran.sim"
+        (DisplayName "STARTUP-tran")
+        (Type "PSpice Profile"))
+      (ActiveProfile ".\tps63805_trans-pspicefiles\startup\tran.sim"))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\tps63805_trans.lib"
+        (Type "PSpiceLibrary")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (VPULSE
+      (FullPartName "VPULSE.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_16.2\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (TPS63805YFF_TRANS
+      (FullPartName "TPS63805YFFR.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBERS\TPS63805\RELEASE_SANKALP\PSPICE\TPS63805_PSPICE_TRANS\TPS63805YFF_TRANS.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 0 252 0 355"))
+      (Tab 0)))
+  (MPSSessionName "x0212753")
+  (ISPCBBASICLICENSE "false"))

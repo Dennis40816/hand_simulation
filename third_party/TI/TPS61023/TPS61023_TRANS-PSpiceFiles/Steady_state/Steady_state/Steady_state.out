@@ -1,0 +1,539 @@
+
+**** 06/24/20 16:18:48 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "Steady_state-Steady_state"  [ C:\Minqiu\Pspice\FullLibrary\tps61023-master@682092c3650\Development-PSPICE\TPS61023_PSPI
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Steady_state.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../library/tps61023_trans.lib" 
+* From [PSPICE NETLIST] section of C:\Users\a0224109\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Minqiu\Pspice\TPS55288\TPS55288DEMO_MQ-PSpiceFiles\tps55288demo_mq.lib" 
+.lib "C:\Minqiu\Pspice\TPS55288\LOGIC.LIB" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 250us 245u 20n 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\Steady_state.net" 
+
+
+
+**** INCLUDING Steady_state.net ****
+* source TPS61023_TRANS
+C_C2         0 VIN  22u  TC=0,0 
+X_C6         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C5         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C4         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C1         VIN 0 CESR PARAMS: C=150u ESR=0.1 IC=1N X=1
+V_V1         VIN 0 3.6
+X_L1         VIN SW LDCR PARAMS: L=1.1u DCR=4.55m
+X_U1         VIN FB 0 SW VIN VOUT TPS61023_SCHEMATIC
+C_C3         0 VIN  0.1u  TC=0,0 
+R_R3         N16777525 VOUT  49.9 TC=0,0 
+R_R2         0 FB  100k TC=0,0 
+R_R1         FB N16777525  733k TC=0,0 
+R_RLOAD         0 VOUT  {5/1} TC=0,0 
+.PARAM  ss=1
+
+**** RESUMING Steady_state.cir ****
+.END
+
+WARNING(ORPSIM-15246): Library index file tps61023_trans.ind does not have the correct format
+
+INFO(ORPSIM-15422): Making new index file tps61023_trans.ind for library file tps61023_trans.lib.
+
+Index has 42 entries from 1 file(s).
+
+**** 06/24/20 16:18:48 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "Steady_state-Steady_state"  [ C:\Minqiu\Pspice\FullLibrary\tps61023-master@682092c3650\Development-PSPICE\TPS61023_PSPI
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_D1            X_U1.X_D1.dd7   
+          IS    1.000000E-15    1.000000E-15 
+           N     .01             .01         
+          RS                    5.000000E-03 
+          TT   10.000000E-12   10.000000E-12 
+
+
+               X_U1.X_U1.X_U5.dd 
+          IS    1.000000E-15 
+           N     .01         
+          TT   10.000000E-12 
+
+
+               X_U1.X_U1.X_U6.dd 
+          IS    1.000000E-15 
+           N     .01         
+          TT   10.000000E-12 
+
+
+               X_U1.X_U6.X_U22.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS     .05         
+          TT   10.000000E-12 
+
+
+               X_U1.X_U9.X_U624.d_d1 
+          IS    1.000000E-15 
+           N     .1          
+          RS    5.000000E-03 
+          TT   10.000000E-12 
+
+
+               X_U1.X_U3.X_U22.d_d1 
+          IS    1.000000E-15 
+           N     .01         
+          RS     .05         
+          TT   10.000000E-12 
+
+
+**** 06/24/20 16:18:48 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "Steady_state-Steady_state"  [ C:\Minqiu\Pspice\FullLibrary\tps61023-master@682092c3650\Development-PSPICE\TPS61023_PSPI
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MbreakP         
+               PMOS            
+       LEVEL    1            
+           L   10.000000E-09 
+           W  450.000000E-09 
+         VTO    -.7          
+          KP   10            
+       GAMMA    0            
+         PHI     .6          
+      LAMBDA     .12         
+          IS   10.000000E-15 
+          JS    0            
+          PB     .8          
+        PBSW     .8          
+          CJ    0            
+        CJSW    0            
+        CGSO    0            
+        CGDO    0            
+        CGBO    0            
+         TOX    0            
+          XJ    0            
+       UCRIT   10.000000E+03 
+      DIOMOD    1            
+         VFB    0            
+        LETA    0            
+        WETA    0            
+          U0    0            
+        TEMP    0            
+         VDD    5            
+       XPART    0            
+
+
+**** 06/24/20 16:18:48 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "Steady_state-Steady_state"  [ C:\Minqiu\Pspice\FullLibrary\tps61023-master@682092c3650\Development-PSPICE\TPS61023_PSPI
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.X_S4._S4   X_U1.X_S2._S2   X_U1.X_S1._S1   X_U1.X_S3._S3   
+         RON    1.000000E-03    1.000000E-03     .047            .068        
+        ROFF  100.000000E+06  100.000000E+06    1.000000E+06    1.000000E+06 
+         VON     .8              .8              .7              .7          
+        VOFF     .2              .2              .2              .2          
+
+
+               X_U1.X_U1.X_S2._S2 
+         RON    1.000000E-03 
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U1.X_U1.X_S1._S1 
+         RON    1.000000E-03 
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U1.X_U4.X_S69._S69 
+         RON    1.000000E-03 
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U1.X_U4.X_S68._S68 
+         RON    1.000000E+06 
+        ROFF  100.000000E+09 
+         VON     .8          
+        VOFF     .2          
+
+
+               X_U1.X_U3.X_U630.s1 
+         RON    1            
+        ROFF    1.000000E+09 
+         VON     .75         
+        VOFF     .25         
+
+
+               X_U1.X_U3.X_S2._S2 
+         RON     .02         
+        ROFF  100.000000E+06 
+         VON     .8          
+        VOFF     .2          
+
+
+**** 06/24/20 16:18:48 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "Steady_state-Steady_state"  [ C:\Minqiu\Pspice\FullLibrary\tps61023-master@682092c3650\Development-PSPICE\TPS61023_PSPI
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   FB) 3.386E-09  (   SW) 77.86E-09  (  VIN)    3.6000  ( VOUT) 28.21E-09      
+
+(X_C1.1)    3.5294 (X_C4.1) 9.403E-09 (X_C5.1) 9.403E-09 (X_C6.1) 9.403E-09     
+
+(X_L1.1) 77.88E-09 (X_U1.MAX)    3.6000                  (X_U1.OVP)    0.0000   
+
+(X_U1.PFM)    1.0000                  (X_U1.VEA)     .0056                      
+
+(N16777525) 28.21E-09                 (X_U1.SDWN)    0.0000                     
+
+(X_U1.VREF)     .2000                 (X_U1.FB_INT) 3.386E-09                   
+
+(X_U1.ISENSE)-332.2E-15               (X_U1.N02524)    0.0000                   
+
+(X_U1.N02652)    1.0000               (X_U1.N02676)    4.2000                   
+
+(X_U1.N02682) 77.86E-09               (X_U1.N02802) 77.86E-09                   
+
+(X_U1.N03284)    1.0000               (X_U1.N03428)    3.4000                   
+
+(X_U1.N03512)    1.0000               (X_U1.N03590)    1.0000                   
+
+(X_U1.N03668)     .0020               (X_U1.N03750)    -.0094                   
+
+(X_U1.N03792) 77.86E-09               (X_U1.N03994) 77.86E-09                   
+
+(X_U1.N04164)     .0094               (X_U1.N04226)   -2.0000                   
+
+(X_U1.N04404)    5.0000               (X_U1.N04714) 8.889E-09                   
+
+(X_U1.N18081) 3.386E-09               (X_U1.ISEN_LDO)-4.919E-09                 
+
+(X_U1.SKIP_PFM)    0.0000             (X_U1.VOUT_INT) 29.63E-09                 
+
+(X_U1.VOUT_SEN)     .1800             (X_U1.X_U3.TON)-35.52E-06                 
+
+(X_U1.X_U616.1)    1.0000             (X_U1.GATE_NMOS)    0.0000                
+
+(X_U1.GATE_PMOS)    0.0000            (X_U1.PRECHARGE)    1.0000                
+
+(X_U1.X_U2.HDRV)    0.0000            (X_U1.X_U2.LDRV)    0.0000                
+
+(X_U1.X_U2.OVPN)    1.0000            (X_U1.X_U9.FPWM)    0.0000                
+
+(X_U1.X_U9.SKIP)    0.0000            (X_U1.SKIP_PFM_N)    1.0000               
+
+(X_U1.X_U10.YINT)    1.0000           (X_U1.X_U11.YINT)    1.0000               
+
+(X_U1.X_U3.RESET)    1.0000           (X_U1.X_U4.SS_TR)     .2000               
+
+(X_U1.X_U5.EN_OK)    1.0000           (X_U1.X_U3.SKIP_N)    1.0000              
+
+(X_U1.X_U5.EN_INT)    1.0000          (X_U1.X_U5.SDWN_N)    1.0000              
+
+(X_U1.X_U5.VIN_OK)    1.0000          (X_U1.X_U616.INM1)   -3.4000              
+
+(X_U1.X_U616.INP1)    0.0000          (X_U1.X_U616.INP2)     .0020              
+
+(X_U1.PASS_THROUGH)    0.0000         (X_U1.PRECHARGE_ON)    1.0000             
+
+(X_U1.X_U3.TON_EXP)    1.0000         (X_U1.X_U5.VOUT_OK)    0.0000             
+
+(X_U1.X_U3.ISEN_INT)    0.0000        (X_U1.X_U3.X_U615.1)    1.0000            
+
+(X_U1.X_U5.X_U615.1)    1.0000        (X_U1.X_U5.X_U616.1)    1.0000            
+
+(X_U1.X_U5.X_U617.1)    0.0000        (X_U1.X_U6.X_U615.1)    0.0000            
+
+(X_U1.X_U6.X_U616.1)    1.0000        (X_U1.X_U6.X_U618.1)    1.0000            
+
+(X_U1.X_U7.X_U616.1)    0.0000        (X_U1.X_U9.X_U616.1)    0.0000            
+
+(X_U1.X_U9.X_U618.1)    0.0000        (X_U1.X_U9.X_U619.1)    1.0000            
+
+(X_U1.X_U1.N16782062)     .0056       (X_U1.X_U1.N16784843)     .0150           
+
+(X_U1.X_U1.N16786290)     .2950       (X_U1.X_U1.N16788044)-1.093E-09           
+
+(X_U1.X_U2.N16776358)    1.0000       (X_U1.X_U2.N16776364)    0.0000           
+
+(X_U1.X_U2.N16776520)    1.0000       (X_U1.X_U2.N16776526)    0.0000           
+
+(X_U1.X_U2.N16781894)    1.0000       (X_U1.X_U2.N16782385)    0.0000           
+
+(X_U1.X_U2.N16782723)    1.0000       (X_U1.X_U2.N16793571)    0.0000           
+
+(X_U1.X_U2.N16794319)    0.0000       (X_U1.X_U2.N16794600)    1.0000           
+
+(X_U1.X_U2.N16802886)    0.0000       (X_U1.X_U3.BLNK_TIME) 459.4E-27           
+
+(X_U1.X_U3.N16760203)    -.0355       (X_U1.X_U3.N16760209)    2.0000           
+
+(X_U1.X_U3.N16760219) 80.02E-15       (X_U1.X_U3.N16760623)    1.0000           
+
+(X_U1.X_U3.N16788226)-459.4E-27       (X_U1.X_U3.N16788246)    0.0000           
+
+(X_U1.X_U3.N16794413)    1.0000       (X_U1.X_U3.N16798891)    1.0000           
+
+(X_U1.X_U3.N16799638)    0.0000       (X_U1.X_U3.N16805500)    0.0000           
+
+(X_U1.X_U3.N16833195)    0.0000       (X_U1.X_U3.N16834033)    1.0000           
+
+(X_U1.X_U3.N16851858)    1.0000       (X_U1.X_U3.N16852133)    0.0000           
+
+(X_U1.X_U3.RESET_INT)    1.0000       (X_U1.X_U3.X_U22.my5)    1.0000           
+
+(X_U1.X_U3.X_U22.qbr)    1.0000       (X_U1.X_U3.X_U22.qqq)    -.0099           
+
+(X_U1.X_U3.X_U630.ch)    1.0000       (X_U1.X_U4.N16715897)    1.0000           
+
+(X_U1.X_U4.N16715923)    1.0000       (X_U1.X_U4.N16734545)     .2000           
+
+(X_U1.X_U5.N16760737)    1.2000       (X_U1.X_U5.N16760758)     .7800           
+
+(X_U1.X_U5.N16761003)    1.7900       (X_U1.X_U5.N16761019)     .0020           
+
+(X_U1.X_U5.N16761451)    2.1900       (X_U1.X_U5.N16761467)     .0100           
+
+(X_U1.X_U5.N16764381)    1.0000       (X_U1.X_U6.N16760966)     .0100           
+
+(X_U1.X_U6.N16761083)    0.0000       (X_U1.X_U6.N16761379)    1.0000           
+
+(X_U1.X_U6.N16762471)    1.0000       (X_U1.X_U6.N16762684) 50.00E-06           
+
+(X_U1.X_U6.N16763662)    1.0000       (X_U1.X_U6.N16771362)     .0100           
+
+(X_U1.X_U6.N16774814)    0.0000       (X_U1.X_U6.N16775115)    0.0000           
+
+(X_U1.X_U6.N16776473)     .6060       (X_U1.X_U6.N16777030)     .5820           
+
+(X_U1.X_U6.X_U22.my5)    1.0000       (X_U1.X_U6.X_U22.qbr)    1.0000           
+
+(X_U1.X_U6.X_U22.qqq)    -.0099       (X_U1.X_U7.N16761502)     .1000           
+
+(X_U1.X_U7.N16761602)    5.7000       (X_U1.X_U9.N16761158)    1.2000           
+
+(X_U1.X_U9.N16761170)     .8000       (X_U1.X_U9.N16761926) 3.386E-09           
+
+(X_U1.X_U9.N16761940)     .2020       (X_U1.X_U9.N16763091) 50.00E-06           
+
+(X_U1.X_U9.N16763641)     .0200       (X_U1.X_U9.N16763659)     .0020           
+
+(X_U1.X_U9.N16764440)    1.0000       (X_U1.X_U9.N16769550)    0.0000           
+
+(X_U1.X_U9.N16786337)    1.0000       (X_U1.X_U9.N16788254)    0.0000           
+
+(X_U1.X_U3.N167609210)     .0020      (X_U1.X_U3.X_U22.qint)    -.0099          
+
+(X_U1.X_U6.X_U22.qint)    -.0099      (X_U1.X_U2.X_U616.YINT)    1.0000         
+
+(X_U1.X_U2.X_U619.YINT)    1.0000     (X_U1.X_U2.X_U620.YINT)    0.0000         
+
+(X_U1.X_U2.X_U622.YINT)    1.0000     (X_U1.X_U2.X_U624.YINT)    1.0000         
+
+(X_U1.X_U2.X_U625.YINT)    0.0000     (X_U1.X_U2.X_U626.YINT)    0.0000         
+
+(X_U1.X_U2.X_U627.YINT)    1.0000     (X_U1.X_U2.X_U628.YINT)    0.0000         
+
+(X_U1.X_U2.X_U629.YINT)    0.0000     (X_U1.X_U2.X_U630.YINT)    1.0000         
+
+(X_U1.X_U2.X_U631.YINT)    0.0000     (X_U1.X_U2.X_U633.YINT)    0.0000         
+
+(X_U1.X_U2.X_U634.YINT)    0.0000     (X_U1.X_U3.X_U22.myvss)    0.0000         
+
+(X_U1.X_U3.X_U22.qqqd1)    0.0000     (X_U1.X_U3.X_U615.INM1)    -.0056         
+
+(X_U1.X_U3.X_U615.INP1)    0.0000     (X_U1.X_U3.X_U615.INP2)     .0020         
+
+(X_U1.X_U3.X_U619.YINT)    1.0000     (X_U1.X_U3.X_U620.YINT)    1.0000         
+
+(X_U1.X_U3.X_U622.YINT)    0.0000     (X_U1.X_U3.X_U623.YINT)    1.0000         
+
+(X_U1.X_U3.X_U624.YINT)    0.0000     (X_U1.X_U3.X_U625.YINT)    0.0000         
+
+(X_U1.X_U3.X_U626.YINT)    0.0000     (X_U1.X_U3.X_U628.YINT)    1.0000         
+
+(X_U1.X_U3.X_U629.Yint)    1.0000     (X_U1.X_U3.X_U630.meas)    1.0000         
+
+(X_U1.X_U3.X_U631.YINT)    1.0000     (X_U1.X_U4.X_U831.YINT)    1.0000         
+
+(X_U1.X_U5.X_U615.INM1)   -2.4000     (X_U1.X_U5.X_U615.INP1)    0.0000         
+
+(X_U1.X_U5.X_U615.INP2)     .7800     (X_U1.X_U5.X_U616.INM1)   -1.8100         
+
+(X_U1.X_U5.X_U616.INP1)    0.0000     (X_U1.X_U5.X_U616.INP2)     .0020         
+
+(X_U1.X_U5.X_U617.INM1)    2.1900     (X_U1.X_U5.X_U617.INP1)    0.0000         
+
+(X_U1.X_U5.X_U617.INP2)    0.0000     (X_U1.X_U5.X_U618.YINT)    1.0000         
+
+(X_U1.X_U5.X_U619.YINT)    0.0000     (X_U1.X_U5.X_U620.YINT)    1.0000         
+
+(X_U1.X_U6.X_U22.myvss)    0.0000     (X_U1.X_U6.X_U22.qqqd1)    0.0000         
+
+(X_U1.X_U6.X_U615.INM1)     .6060     (X_U1.X_U6.X_U615.INP1)    0.0000         
+
+(X_U1.X_U6.X_U615.INP2)    0.0000     (X_U1.X_U6.X_U616.INM1)   -3.6000         
+
+(X_U1.X_U6.X_U616.INP1)    0.0000     (X_U1.X_U6.X_U616.INP2)     .0100         
+
+(X_U1.X_U6.X_U617.YINT)    0.0000     (X_U1.X_U6.X_U618.INM1)    -.5820         
+
+(X_U1.X_U6.X_U618.INP1)    0.0000     (X_U1.X_U6.X_U618.INP2) 50.00E-06         
+
+(X_U1.X_U6.X_U619.YINT)    0.0000     (X_U1.X_U6.X_U622.YINT)    0.0000         
+
+(X_U1.X_U7.X_U616.INM1)    5.7000     (X_U1.X_U7.X_U616.INP1)    0.0000         
+
+(X_U1.X_U7.X_U616.INP2)    0.0000     (X_U1.X_U9.X_U616.INM1)    1.2000         
+
+(X_U1.X_U9.X_U616.INP1)    0.0000     (X_U1.X_U9.X_U616.INP2)    0.0000         
+
+(X_U1.X_U9.X_U617.YINT)    1.0000     (X_U1.X_U9.X_U618.INM1)     .2020         
+
+(X_U1.X_U9.X_U618.INP1)    0.0000     (X_U1.X_U9.X_U618.INP2)    0.0000         
+
+(X_U1.X_U9.X_U619.INM1)    -.0144     (X_U1.X_U9.X_U619.INP1)    0.0000         
+
+(X_U1.X_U9.X_U619.INP2)     .0020     (X_U1.X_U9.X_U623.YINT)    0.0000         
+
+(X_U1.X_U9.X_U624.inp1)    0.0000     (X_U1.X_U9.X_U624.yin1) 53.99E-30         
+
+(X_U1.X_U9.X_U624.yin2)    0.0000     (X_U1.X_U9.X_U624.yin3)-53.99E-30         
+
+(X_U1.X_U9.X_U624.yin4)    0.0000     (X_U1.X_U9.X_U626.YINT)    1.0000         
+
+(X_U1.X_U9.X_U627.YINT)    1.0000     (X_U1.X_U9.X_U628.YINT)    0.0000         
+
+(X_U1.X_U3.X_U10.N00363)   -3.6000    (X_U1.X_U3.X_U10.N00593)    1.0000        
+
+(X_U1.X_U3.X_U10.N00775)    1.0000    (X_U1.X_U3.X_U10.N01724)     .0027        
+
+(X_U1.X_U3.X_U10.N01998)-35.56E-06    (X_U1.X_U3.X_U10.N03521)-35.52E-06        
+
+(X_U1.X_U3.X_U10.VOUT_P)     .1000    (X_U1.X_U3.X_U621.YINT1)    0.0000        
+
+(X_U1.X_U3.X_U621.YINT2)    0.0000    (X_U1.X_U3.X_U621.YINT3)    1.0000        
+
+(X_U1.X_U3.X_U630.reset)    0.0000    (X_U1.X_U3.X_U22.x3.YINT)    0.0000       
+
+(X_U1.X_U3.X_U630.reset2)    0.0000   (X_U1.X_U6.X_U22.x3.YINT)    0.0000       
+
+(X_U1.X_U6.PASS_THROUGH_INT)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -3.529E+01
+    X_U1.V_V5    1.800E-06
+    X_U1.V_V16  -4.201E-12
+    X_U1.V_V17   0.000E+00
+    X_U1.X_H2.VH_H2  -1.640E-08
+    X_U1.X_U5.V_V2   0.000E+00
+    X_U1.X_U5.V_V1   0.000E+00
+    X_U1.X_U5.V_V4   0.000E+00
+    X_U1.X_U5.V_V5   0.000E+00
+    X_U1.X_U5.V_V6   0.000E+00
+    X_U1.X_U1.V_V8  -2.904E-13
+    X_U1.X_F1.VF_F1  -4.201E-12
+    X_U1.X_U4.V_V70  -3.002E-09
+    X_U1.X_U7.V_V2   0.000E+00
+    X_U1.X_U7.V_V3   0.000E+00
+    X_U1.X_H1.VH_H1  -4.153E-12
+    X_U1.X_U6.V_V5   0.000E+00
+    X_U1.X_U6.V_V3   0.000E+00
+    X_U1.X_U6.V_V4   0.000E+00
+    X_U1.X_U6.V_V1   0.000E+00
+    X_U1.X_U6.V_V2   0.000E+00
+    X_U1.X_U9.V_V6   0.000E+00
+    X_U1.X_U9.V_V9   0.000E+00
+    X_U1.X_U9.V_V5   0.000E+00
+    X_U1.X_U9.V_V4   0.000E+00
+    X_U1.X_U9.V_V8   0.000E+00
+    X_U1.X_U3.V_V7   0.000E+00
+    X_U1.X_U3.V_V2  -4.001E-12
+    X_U1.X_U6.X_U22.v1  -1.011E-12
+    X_U1.X_U6.X_U22.v2  -3.692E-02
+    X_U1.X_U3.X_U22.v1  -1.011E-12
+    X_U1.X_U3.X_U22.v2  -3.692E-02
+
+    TOTAL POWER DISSIPATION   1.27E+02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 06/24/20 16:18:48 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "Steady_state-Steady_state"  [ C:\Minqiu\Pspice\FullLibrary\tps61023-master@682092c3650\Development-PSPICE\TPS61023_PSPI
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  License check-out time            =       40.95
+  Total job time (using Solver 1)   =       17.73
+

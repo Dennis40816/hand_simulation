@@ -1,0 +1,104 @@
+
+**** 04/28/24 21:30:41 **** PSpice 22.1.0 (6 October 2022) **** ID# 0 ********
+
+ ** Profile: "STARTUP-tran"  [ C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\TI\TPS63806\tps63806_trans-pspicefi
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "tran.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../tps63806_trans.lib" 
+* From [PSPICE NETLIST] section of C:\Dennis\Develop\Simulation\ORCAD\cdssetup\OrCAD_PSpice\22.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 0.45m 0 10n 
+.OPTIONS ADVCONV
+.OPTIONS ABSTOL= 1.0n
+.OPTIONS ITL4= 30
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\STARTUP.net" 
+
+
+
+**** INCLUDING STARTUP.net ****
+* source TPS63806_TRANS
+C_C5         EN 0  68u  TC=0,0 
+C_C1         EN 0  10u  TC=0,0 
+X_C6         VOUT 0 CESR PARAMS:  C=16.4u  ESR=3m X=1  IC=0
+X_L1         L1 L2 LDCR PARAMS: L=470n DCR=0.0076
+R_RLOAD         VOUT 0  {VOUT/IOUT} TC=0,0 
+V_V1         EN 0  
++PULSE 0 {VIN} 1u 1u 
+R_R2         0 FB  91k TC=0,0 
+R_R1         FB VOUT  511k TC=0,0 
+R_R5         VOUT PG  100k TC=0,0 
+X_U1         0 EN FB 0 0 L1 L1 L2 L2 MODE PG EN EN VOUT VOUT TPS63806_TRANS
++  PARAMS: STEADY_STATE=0
+R_R6         EN MODE  100k TC=0,0 
+.PARAM  vin=2.6 iout=2 vout=3.3
+
+**** RESUMING tran.cir ****
+.END
+
+WARNING(ORPSIM-15256): <X_U1.STEADY_STATE> not a subcircuit param
+
+**** 04/28/24 21:30:41 **** PSpice 22.1.0 (6 October 2022) **** ID# 0 ********
+
+ ** Profile: "STARTUP-tran"  [ C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\TI\TPS63806\tps63806_trans-pspicefi
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   EN)    0.0000  (   FB)    0.0000  (   L1) 700.3E-27  (   L2) 651.5E-27      
+
+(   PG)    0.0000  ( MODE)    0.0000  ( VOUT)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 04/28/24 21:30:41 **** PSpice 22.1.0 (6 October 2022) **** ID# 0 ********
+
+ ** Profile: "STARTUP-tran"  [ C:\Dennis\Develop\Simulation\ORCAD\Project\hand_pdn_v2\third_party\TI\TPS63806\tps63806_trans-pspicefi
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  License check-out time            =      372.61
+  Total job time (using Solver 1)   =      400.22
+

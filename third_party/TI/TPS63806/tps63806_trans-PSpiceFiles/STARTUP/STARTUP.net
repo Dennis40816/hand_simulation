@@ -1,0 +1,15 @@
+* source TPS63806_TRANS
+C_C5         EN 0  68u  TC=0,0 
+C_C1         EN 0  10u  TC=0,0 
+X_C6         VOUT 0 CESR PARAMS:  C=16.4u  ESR=3m X=1  IC=0
+X_L1         L1 L2 LDCR PARAMS: L=470n DCR=0.0076
+R_RLOAD         VOUT 0  {VOUT/IOUT} TC=0,0 
+V_V1         EN 0  
++PULSE 0 {VIN} 1u 1u 
+R_R2         0 FB  91k TC=0,0 
+R_R1         FB VOUT  511k TC=0,0 
+R_R5         VOUT PG  100k TC=0,0 
+X_U1         0 EN FB 0 0 L1 L1 L2 L2 MODE PG EN EN VOUT VOUT TPS63806_TRANS
++  PARAMS: STEADY_STATE=0
+R_R6         EN MODE  100k TC=0,0 
+.PARAM  vin=2.6 iout=2 vout=3.3

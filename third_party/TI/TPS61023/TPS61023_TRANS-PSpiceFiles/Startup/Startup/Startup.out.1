@@ -1,0 +1,131 @@
+
+**** 11/14/19 14:24:47 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "Startup-Startup"  [ C:\Users\a0224019\Desktop\PSPICE\PSPICE_TPS61023\Publish\TPS61023_TRANS_PSPICE\tps61023_trans-pspic
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Startup.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "C:/Users/a0224019/Desktop/PSPICE/PSPICE_TPS61023/TPS61023_TRANS.LIB" 
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+*Analysis directives: 
+.TRAN  0 1.8m 0 20n 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\Startup.net" 
+
+
+
+**** INCLUDING Startup.net ****
+* source TPS61023_TRANS
+R_R3         N16776669 VOUT  49.9 TC=0,0 
+X_C5         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C4         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_C1         VIN 0 CESR PARAMS: C=150u ESR=0.1 IC=1N X=1
+C_C2         0 VIN  22u  TC=0,0 
+C_C3         0 VIN  0.1u  TC=0,0 
+R_R1         FB N16776669  733k TC=0,0 
+R_R2         0 FB  100k TC=0,0 
+X_C6         VOUT 0 CESR PARAMS: C=22u ESR=1m IC=0 X=1
+X_L1         VIN SW LDCR PARAMS: L=1.1u DCR=4.55m
+X_U1         VIN FB 0 SW VIN VOUT TPS61023_SCHEMATIC 
+X_S1    N16781090 0 VOUT 0 Startup_S1 
+V_V15         N16781090 0  
++PWL 0 0 1.5m 0 1.51m 1 1.6m 1 1.61m 1 
+V_V16         VIN 0 3.6
+.PARAM  ss=0
+
+.subckt Startup_S1 1 2 3 4  
+S_S1         3 4 1 2 _S1
+RS_S1         1 2 1G
+.MODEL         _S1 VSWITCH Roff={5.1/1} Ron={5.1/3} Voff=0.2 Von=0.8
+.ends Startup_S1
+
+**** RESUMING Startup.cir ****
+.END
+
+WARNING(ORPSIM-15223): Library file C:\Users\a0224019\Desktop\PSPICE\PSPICE_TPS61023\TPS61023_TRANS.LIB has changed since index file TPS61023_TRANS.ind was created.
+
+WARNING(ORPSIM-15227): The timestamp changed from Thu Nov 14 14:09:54 2019 to Thu Nov 14 14:24:17 2019.
+
+INFO(ORPSIM-15422): Making new index file TPS61023_TRANS.ind for library file TPS61023_TRANS.LIB.
+
+Index has 31 entries from 1 file(s).
+
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U11 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit BUF_BASIC_GEN used by X_U1.X_U5.X_U620 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U5.X_U618 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U2.X_U628 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND3_BASIC_GEN used by X_U1.X_U2.X_U631 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND3_BASIC_GEN used by X_U1.X_U2.X_U634 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit OR2_BASIC_GEN used by X_U1.X_U2.X_U622 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND3_BASIC_GEN used by X_U1.X_U2.X_U633 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit OR2_BASIC_GEN used by X_U1.X_U2.X_U624 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit OR2_BASIC_GEN used by X_U1.X_U2.X_U626 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND3_BASIC_GEN used by X_U1.X_U2.X_U629 is undefined
+
+
+ERROR(ORPSIM-15108): Subcircuit D_D used by X_U1.X_U1.X_U5 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit D_D used by X_U1.X_U1.X_U6 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U6.X_U619 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U6.X_U617 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit SRLATCHRHP_BASIC_GEN used by X_U1.X_U6.X_U22 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U9.X_U623 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND3_BASIC_GEN used by X_U1.X_U9.X_U628 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit ASYMMETRIC_DELAY used by X_U1.X_U9.X_U624 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit NOR2_BASIC_GEN used by X_U1.X_U9.X_U627 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit NAND2_BASIC_GEN used by X_U1.X_U9.X_U626 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit SRLATCHRHP_BASIC_GEN used by X_U1.X_U3.X_U22 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U3.X_U620 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit INV_DELAY_BASIC_GEN used by X_U1.X_U3.X_U621 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U3.X_U624 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U3.X_U625 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U3.X_U622 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit ONE_SHOT used by X_U1.X_U3.X_U630 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit OR2_BASIC_GEN used by X_U1.X_U3.X_U631 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit OR2_BASIC_GEN used by X_U1.X_U3.X_U628 is undefined
+
+ERROR(ORPSIM-15108): Subcircuit AND2_BASIC_GEN used by X_U1.X_U3.X_U626 is undefined
+

@@ -1,0 +1,82 @@
+(ExpressProject "TPS61023_TRANS"
+  (ProjectVersion "19981106")
+  (SoftwareVersion "22.1 P001 (4063652)  [10/6/2022]-[11/14/19]")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File
+         "c:\users\a0224019\desktop\pspice\pspice_tps61023\encrypted lib\tps61023_trans.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\tps61023_trans.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE")
+    (RootChangedForceReNetlist "x")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420"))
+  (Folder "Layout")
+  (Folder "Outputs"
+    (File ".\tps61023_trans-pspicefiles\startup\startup.net"
+      (Type "Report"))
+    (File ".\tps61023_trans-pspicefiles\steady_state\steady_state.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\tps61023_trans-pspicefiles\startup\startup.sim"
+        (DisplayName "Startup-Startup")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\tps61023_trans-pspicefiles\steady_state\steady_state.sim"
+        (DisplayName "Steady_state-Steady_state")
+        (Type "PSpice Profile"))
+      (ActiveProfile
+         ".\tps61023_trans-pspicefiles\steady_state\steady_state.sim"))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\library\tps61023_trans.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\library\tps61023_trans.lib"))))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (TPS61023_SCHEMATIC
+      (FullPartName "TPS61023_SCHEMATIC.Normal")
+      (LibraryName
+         "C:\USERS\A0224019\DESKTOP\PSPICE\PSPICE_TPS61023\ENCRYPTED LIB\TPS61023_TRANS.OLB")
+      (DeviceIndex "0"))
+    (PARAM
+      (FullPartName "PARAM.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\SPECIAL.OLB")
+      (DeviceIndex "0"))
+    (TPS61023_SYMBOL
+      (FullPartName "TPS61023_SYMBOL.Normal")
+      (LibraryName
+         "C:\USERS\A0224019\DESKTOP\PSPICE\PSPICE_TPS61023\ENCRYPTED LIB\TPS61023_TRANS.OLB")
+      (DeviceIndex "0")))
+  (MPSSessionName "USER")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" "Library")
+      (Path "Outputs")
+      (Path "PSpice Resources")
+      (Path "PSpice Resources" "Model Libraries")
+      (Path "PSpice Resources" "Simulation Profiles")
+      (Select "Design Resources"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 0 0 0 200 0 150"))
+      (Tab 0)))
+  (LastUsedLibraryBrowseDirectory
+     "C:\Users\a0224019\Desktop\PSPICE\PSPICE_TPS61023\Encrypted lib")
+  (ISPCBBASICLICENSE "false")
+  (Folder "Logs"))
