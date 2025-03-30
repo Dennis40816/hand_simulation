@@ -100,68 +100,68 @@ This [Google Drive](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioS
   | name                              | value                   | description                                                         |
   | --------------------------------- | ----------------------- | ------------------------------------------------------------------- |
   | Analysis Type                     | Time Domain (Transient) | Type of simulation (transient time-domain)                          |
-  | Run To Time                       | 35m                     | Total simulation duration (TSTOP)                                   |
+  | Run To Time                       | 35m                     | Total simulation duration (`TSTOP`)                                 |
   | Start Saving Data After           | 0.1m                    | Time after which waveform data will be stored                       |
   | Maximum Step Size                 | 2n                      | Maximum time step the solver is allowed to take                     |
   | Skip Initial Transient Bias Point | False                   | Whether to skip DC operating point calculation before transient sim |
-  | Run in Resume Mode                | True                    | Whether to resume from previously saved simulation state            |
+  | Run in Resume Mode                | True                    | Whether to resume from a previously saved simulation state          |
 
 - Options ➞ Analog Advanced ➞ General
 
   | name        | value   | description                                                     |
   | ----------- | ------- | --------------------------------------------------------------- |
-  | SPEED_LEVEL | 0       | solver speed level (0 = default, higher = faster/less accurate) |
-  | RELTOL      | 0.005   | relative tolerance for voltage/current convergence              |
-  | VNTOL       | 1e-6    | voltage error tolerance                                         |
-  | ABSTOL      | 1e-9    | absolute current tolerance                                      |
-  | CHGTOL      | 0.01p   | charge tolerance                                                |
-  | GMIN        | 1.0e-12 | minimum conductance inserted to prevent floating nodes          |
-  | ITL1        | 150     | max iterations for DC bias point                                |
-  | ITL2        | 20      | max iterations for source stepping                              |
-  | ITL4        | 10      | max iterations for transient solver                             |
-  | TNOM        | 27.0    | nominal operating temperature (°C)                              |
-  | THREADS     | 0       | number of threads used in simulation                            |
-  | ADVCONV     | True    | enables advanced convergence algorithm                          |
+  | SPEED_LEVEL | 0       | Solver speed level (0 = default, higher = faster/less accurate) |
+  | RELTOL      | 0.005   | Relative tolerance for voltage/current convergence              |
+  | VNTOL       | 1e-6    | Voltage error tolerance                                         |
+  | ABSTOL      | 1e-9    | Absolute current tolerance                                      |
+  | CHGTOL      | 0.01p   | Charge tolerance                                                |
+  | GMIN        | 1.0e-12 | Minimum conductance inserted to prevent floating nodes          |
+  | ITL1        | 150     | Maximum iterations for DC bias point                            |
+  | ITL2        | 20      | Maximum iterations for source stepping                          |
+  | ITL4        | 10      | Maximum iterations for transient solver                         |
+  | TNOM        | 27.0    | Nominal operating temperature (°C)                              |
+  | THREADS     | 0       | Number of threads used in simulation                            |
+  | ADVCONV     | True    | Enables advanced convergence algorithm                          |
 
 - Options ➞ Analog Simulation ➞ Auto Converge
 
-  | name         | value   | description                                                  |
-  | ------------ | ------- | ------------------------------------------------------------ |
-  | AutoConverge | True    | enables automatic convergence feature                        |
-  | ITL1         | 1000    | max iterations for DC bias point calculation (Newton loops)  |
-  | ITL2         | 1000    | max iterations for source stepping algorithm                 |
-  | ITL4         | 1000    | max iterations for transient operating point calculation     |
-  | RELTOL       | 0.05    | relative tolerance for convergence                           |
-  | ABSTOL       | 1.0e-6  | absolute tolerance on current                                |
-  | VNTOL        | 0.001   | voltage error tolerance                                      |
-  | PIVTOL       | 1.0e-10 | pivot tolerance in matrix solver                             |
-  | Restart      | True    | enables restart of simulation in case of convergence failure |
+  | name         | value   | description                                                     |
+  | ------------ | ------- | --------------------------------------------------------------- |
+  | AutoConverge | True    | Enables automatic convergence feature                           |
+  | ITL1         | 1000    | Maximum iterations for DC bias point calculation (Newton loops) |
+  | ITL2         | 1000    | Maximum iterations for source stepping algorithm                |
+  | ITL4         | 1000    | Maximum iterations for transient operating point calculation    |
+  | RELTOL       | 0.05    | Relative tolerance for convergence                              |
+  | ABSTOL       | 1.0e-6  | Absolute tolerance on current                                   |
+  | VNTOL        | 0.001   | Voltage error tolerance                                         |
+  | PIVTOL       | 1.0e-10 | Pivot tolerance in matrix solver                                |
+  | Restart      | True    | Enables restart of simulation in case of convergence failure    |
 
 - Options ➞ Analog Advanced ➞ Bias Point
 
   | name       | value | description                                          |
   | ---------- | ----- | ---------------------------------------------------- |
-  | STEPMIN    | False | enables minimum step control during bias calculation |
-  | GMINSTEPS  | 0     | number of GMIN stepping steps                        |
-  | NOSTEPSRC  | False | disables source stepping                             |
-  | ITL6       | 0     | max iterations for bias point convergence            |
-  | NOSTEPDEP  | False | disables dependent source stepping                   |
-  | GMINSRC    | False | enables GMIN stepping on sources                     |
-  | PSEUDOTRAN | False | enables pseudotransient simulation                   |
-  | PTRANSTEP  | 0     | number of steps for pseudotransient stepping         |
+  | STEPMIN    | False | Enables minimum step control during bias calculation |
+  | GMINSTEPS  | 0     | Number of GMIN stepping steps                        |
+  | NOSTEPSRC  | False | Disables source stepping                             |
+  | ITL6       | 0     | Maximum iterations for bias point convergence        |
+  | NOSTEPDEP  | False | Disables dependent source stepping                   |
+  | GMINSRC    | False | Enables GMIN stepping on sources                     |
+  | PSEUDOTRAN | False | Enables pseudotransient simulation                   |
+  | PTRANSTEP  | 0     | Number of steps for pseudotransient stepping         |
 
 - Options ➞ Analog Advanced ➞ Transient
 
   | name        | value   | description                                                  |
   | ----------- | ------- | ------------------------------------------------------------ |
-  | METHOD      | Default | numerical integration method (e.g., Gear, Trapezoidal, etc.) |
-  | TRTOL       | 7       | truncation error tolerance (affects adaptive timestep)       |
-  | CSHUNT      | Disable | enables global shunt capacitor                               |
-  | TRANCONV    | False   | enables convergence override for transient                   |
-  | IGMOS       | False   | enables improved MOSFET modeling                             |
-  | DEBUG       | 0       | debug level (0 = off)                                        |
-  | DEBUG_START | Disable | start time for debug data collection                         |
-  | DEBUG_END   | Disable | end time for debug data collection                           |
+  | METHOD      | Default | Numerical integration method (e.g., Gear, Trapezoidal, etc.) |
+  | TRTOL       | 7       | Truncation error tolerance (affects adaptive timestep)       |
+  | CSHUNT      | Disable | Enables global shunt capacitor                               |
+  | TRANCONV    | False   | Enables convergence override for transient                   |
+  | IGMOS       | False   | Enables improved MOSFET modeling                             |
+  | DEBUG       | 0       | Debug level (0 = off)                                        |
+  | DEBUG_START | Disable | Start time for debug data collection                         |
+  | DEBUG_END   | Disable | End time for debug data collection                           |
 
 - Options ➞ Gate Level Simulation ➞ Advanced
 
@@ -187,32 +187,28 @@ This [Google Drive](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioS
   | Probe Data Format              | 64-bit                       | Data resolution (32-bit or 64-bit)    |
   | Save data in CSDF format (CSD) | False                        | Whether to export data in CSDF format |
 
-### Simulation Paramters
+### Simulation Parameters
 
 | name       | value | description                                                           |
 | ---------- | ----- | --------------------------------------------------------------------- |
-| VBAT_VALUE | 3.7V  | battery voltage (constant)                                            |
+| VBAT_VALUE | 3.7V  | Battery voltage (constant)                                            |
 | VBUS_VALUE | 5.25V | USB voltage (constant)                                                |
-| V5V_VALUE  | 5V    | expected TPS61023 output voltage, used for equivalent resistance calc |
-| I5V_VALUE  | 0.6A  | assumed load current drawn by backend circuit (constant)              |
-| V3V3_VALUE | 3.3V  | expected TPS63806 output voltage, used for equivalent resistance calc |
-| I3V3_VALUE | 0.4A  | assumed load current drawn by backend circuit (constant)              |
+| V5V_VALUE  | 5V    | Expected TPS61023 output voltage, used for equivalent resistance calc |
+| I5V_VALUE  | 0.6A  | Assumed load current drawn by backend circuit (constant)              |
+| V3V3_VALUE | 3.3V  | Expected TPS63806 output voltage, used for equivalent resistance calc |
+| I3V3_VALUE | 0.4A  | Assumed load current drawn by backend circuit (constant)              |
 | T3         | 20 ms | USB plugin time                                                       |
 | T4         | 27 ms | USB unplug time                                                       |
 
 ### Library
 
-| relative path                                       | description          |
-| --------------------------------------------------- | -------------------- |
-| .\third_party\titps63805\tps63805_trans.lib         | Library include file |
-| .\third_party\titps63806\tps63806_trans.lib         | Library include file |
-| .\third_party\titps61023\library\tps61023_trans.lib | Library include file |
-| .\third_party\diode\inc\dp2035uvt.lib               | Library include file |
-| .\third_party\titps22965\tps22965_trans.lib         | Library include file |
-| .\third_party\murata\ferrite bead\blm18sg700tz1.lib | Library include file |
-| nom.lib                                             | Nominal library file |
-| c:\cadence\spb_22.1\tools\PSpice\Library            | Default library path |
-
-```
-
-```
+| relative path                                         | description          |
+| ----------------------------------------------------- | -------------------- |
+| `.\third_party\titps63805\tps63805_trans.lib`         | Library include file |
+| `.\third_party\titps63806\tps63806_trans.lib`         | Library include file |
+| `.\third_party\titps61023\library\tps61023_trans.lib` | Library include file |
+| `.\third_party\diode\inc\dp2035uvt.lib`               | Library include file |
+| `.\third_party\titps22965\tps22965_trans.lib`         | Library include file |
+| `.\third_party\murata\ferrite bead\blm18sg700tz1.lib` | Library include file |
+| `nom.lib`                                             | Nominal library file |
+| `c:\cadence\spb_22.1\tools\PSpice\Library`            | Default library path |
