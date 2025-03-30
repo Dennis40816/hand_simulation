@@ -1,6 +1,6 @@
 # HAND Simulation
 
-This repo organizes the files and procedures for simulation verification of the HAND Power Delivery Network using ORCAD.
+This repository compiles the files and outlines the procedures for verifying the simulation of the HAND Power Delivery Network using ORCAD.
 
 ## Software Requirements
 
@@ -10,62 +10,62 @@ This repo organizes the files and procedures for simulation verification of the 
 ## Hardware Information
 
 - Intel I9-10900F
-- RAM 32 GB
+- 32 GB RAM
 - Data Size $\approx$ 25 GB
 
-The simulation process takes about **6** hours.
+The simulation process takes approximately **6** hours.
 
 ## Results
 
 ![hand_pdn_sim](pictures/hand_pdn_sim.png)
 
-The above figure shows that under normal operating conditions, the HAND power system can stably output 3.3V and 5V.
+The above figure demonstrates that under normal operating conditions, the HAND power system consistently outputs 3.3V and 5V.
 
 ## Data Visualization
 
-### How to plot the result in PSPICE?
+### How to Plot the Results in PSPICE?
 
-After you simulate the circuit, do the following:
+After you simulate the circuit, perform the following steps:
 
 1. Window ➞ Display Control
 
    ![display_control](pictures/display_control.png)
 
-2. Choose existed `hand_pdn` or load `hand_pdn_v2-PSpiceFiles\SCHEMATIC1\hand_pdn_v2`
+2. Choose an existing `hand_pdn` or load `hand_pdn_v2-PSpiceFiles\SCHEMATIC1\hand_pdn_v2\hand_pdn_v2.prb`
 
    ![hand_pdn_prb](pictures/hand_pdn_prb.png)
 
-3. Make sure you're using correct data file ( `hand_pdn_v2.dat` )
-4. Got the plot
+3. Ensure you're using the correct data file ( `hand_pdn_v2.dat` )
+4. View the plotted result
 
    ![result_in_pspice](pictures/result_in_pspice.png)
 
-## How to convert .dat file to .mat?
+## How to Convert .dat to .mat?
 
 ### Export
 
-1. select matlab path
+1. Select the MATLAB path
 
    ![select_matlab_path](pictures/select_matlab_path.png)
 
-2. export selected traces
+2. Export the selected traces
 
    ![export_selected_traces](pictures/export_selected_traces.png)
 
-3. select specific traces (do not export all traces, it takes super long time) and click export
+3. Choose specific traces (do not export all traces, as it takes an excessively long time) and click export
 
    ![select_specific_traces](pictures/select_specific_traces.png)
 
-4. get MATLAB plots (optional)
+4. (Optional) Generate MATLAB plots
 
    ![generated_matlab_plots](pictures/generated_matlab_plots.png)
 
 ### Save as .mat
 
 > [!TIP]
-> The following operations are performed in the MATLAB Command Window opened by PSPICE.
+> The following operations are performed in the MATLAB Command Window launched by PSPICE.
 
-1. go to MATLAB Command Window use command `whos`
+1. Open the MATLAB Command Window and run the command `whos`
 
    ![matlab_command_window](pictures/matlab_command_window.png)
 
@@ -75,7 +75,7 @@ After you simulate the circuit, do the following:
    cd 'H:\My Drive\Share\HAND\ORCAD\paper'
    ```
 
-1. Store the struct as mat
+1. Save the struct as a .mat file
 
    ```bash
    save('2025-3-30-hand-sim.mat', 'PSpiceData_1');
@@ -83,17 +83,17 @@ After you simulate the circuit, do the following:
 
 ## Complete Folder
 
-This [Google Drive](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioShIMDqE8ifsSX?usp=sharing) contains the simulation results produced by the author. Important data include:
+This [Google Drive](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioShIMDqE8ifsSX?usp=sharing) contains the simulation results produced by the author. Key files include:
 
 - `hand_pdn_v2.opj`: ORCAD project file
 - `third_party`: IC models
 - `hand_pdn_v2-PSpiceFiles\SCHEMATIC1\hand_pdn_v2\hand_pdn_v2.dat`: simulation data (ORCAD)
 - `hand_pdn_v2-PSpiceFiles\SCHEMATIC1\hand_pdn_v2\hand_pdn_v2.prb`: simulation traces plotting information
-- `complete_both_delay.mat` & `2025-3-30-hand-sim`: extracted specific curves converted to `.mat`, which can be plotted using `plot_pspice` (by modifying the loaded .mat file)
+- `complete_both_delay.mat` & `2025-3-30-hand-sim.mat`: extracted specific curves converted to `.mat`, which can be plotted using `plot_pspice.m`
 
 ## Parameters
 
-**PSPICE Simulation Environments**
+### PSPICE Simulation Environments
 
 - Analysis
 
@@ -132,9 +132,9 @@ This [Google Drive](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioS
   | ITL2         | 1000    | max iterations for source stepping algorithm                 |
   | ITL4         | 1000    | max iterations for transient operating point calculation     |
   | RELTOL       | 0.05    | relative tolerance for convergence                           |
-  | ABSTOL       | 1.0E-6  | absolute tolerance on current                                |
+  | ABSTOL       | 1.0e-6  | absolute tolerance on current                                |
   | VNTOL        | 0.001   | voltage error tolerance                                      |
-  | PIVTOL       | 1.0E-10 | pivot tolerance in matrix solver                             |
+  | PIVTOL       | 1.0e-10 | pivot tolerance in matrix solver                             |
   | Restart      | True    | enables restart of simulation in case of convergence failure |
 
 - Options ➞ Analog Advanced ➞ Bias Point
@@ -187,6 +187,19 @@ This [Google Drive](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioS
   | Probe Data Format              | 64-bit                       | Data resolution (32-bit or 64-bit)    |
   | Save data in CSDF format (CSD) | False                        | Whether to export data in CSDF format |
 
+### Simulation Paramters
+
+| name       | value | description                                                           |
+| ---------- | ----- | --------------------------------------------------------------------- |
+| VBAT_VALUE | 3.7V  | battery voltage (constant)                                            |
+| VBUS_VALUE | 5.25V | USB voltage (constant)                                                |
+| V5V_VALUE  | 5V    | expected TPS61023 output voltage, used for equivalent resistance calc |
+| I5V_VALUE  | 0.6A  | assumed load current drawn by backend circuit (constant)              |
+| V3V3_VALUE | 3.3V  | expected TPS63806 output voltage, used for equivalent resistance calc |
+| I3V3_VALUE | 0.4A  | assumed load current drawn by backend circuit (constant)              |
+| T3         | 20 ms | USB plugin time                                                       |
+| T4         | 27 ms | USB unplug time                                                       |
+
 ### Library
 
 | relative path                                       | description          |
@@ -200,15 +213,6 @@ This [Google Drive](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioS
 | nom.lib                                             | Nominal library file |
 | c:\cadence\spb_22.1\tools\PSpice\Library            | Default library path |
 
-**Simulation Paramters**
+```
 
-| name       | value | description                                                           |
-| ---------- | ----- | --------------------------------------------------------------------- |
-| VBAT_VALUE | 3.7V  | battery voltage (constant)                                            |
-| VBUS_VALUE | 5.25V | USB voltage (constant)                                                |
-| V5V_VALUE  | 5V    | expected TPS61023 output voltage, used for equivalent resistance calc |
-| I5V_VALUE  | 0.6A  | assumed load current drawn by backend circuit (constant)              |
-| V3V3_VALUE | 3.3V  | expected TPS63806 output voltage, used for equivalent resistance calc |
-| I3V3_VALUE | 0.4A  | assumed load current drawn by backend circuit (constant)              |
-| T3         | 20 ms | USB plugin time                                                       |
-| T4         | 27 ms | USB unplug time                                                       |
+```
