@@ -83,13 +83,14 @@ After you simulate the circuit, perform the following steps:
 
 ## Complete Folder
 
-This [Google Drive](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioShIMDqE8ifsSX?usp=sharing) contains the simulation results produced by the author. Key files include:
+This [Google Drive Directory](https://drive.google.com/drive/folders/1SmM2jxRfvN7NogEErioShIMDqE8ifsSX?usp=sharing) contains the simulation results produced by the author. Key files include:
 
 - `hand_pdn_v2.opj`: ORCAD project file
 - `third_party`: IC models
 - `hand_pdn_v2-PSpiceFiles\SCHEMATIC1\hand_pdn_v2\hand_pdn_v2.dat`: simulation data (ORCAD)
 - `hand_pdn_v2-PSpiceFiles\SCHEMATIC1\hand_pdn_v2\hand_pdn_v2.prb`: simulation traces plotting information
 - `complete_both_delay.mat` & `2025-3-30-hand-sim.mat`: extracted specific curves converted to `.mat`, which can be plotted using `plot_pspice.m`
+- `pdf`: ORCAD schematic diagram pdf file
 
 ## Parameters
 
