@@ -15,6 +15,11 @@ This repository compiles the files and outlines the procedures for verifying the
 
 The simulation process takes approximately **6** hours.
 
+- Intel I5-12500H
+- 24 GB RAM
+
+The simulation process takes approximately **20** hours.
+
 ## Results
 
 ![hand_pdn_sim](pictures/hand_pdn_sim.png)
